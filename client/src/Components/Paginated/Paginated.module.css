@@ -1,0 +1,12 @@
+.paginated{
+    display: flex;
+    flex-direction: row;
+}
+
+.uList {
+	display: flex;
+	list-style-type: none;
+	column-gap: 12px;
+	margin: 0px;
+	padding: 90px;
+}
