@@ -1,0 +1,39 @@
+.component{
+    width: 250px;
+    height: 415px;
+    /* border: solid 1px black; // OJO CON ESTO!!! */
+    transition: 0.5s;
+    animation: ease-in;
+    padding: 1rem;
+    margin: 2rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+    backdrop-filter: blur(5px);
+}
+
+.component:hover {
+    transform: scale(1.06);
+}
+
+.component img {
+    padding: 1rem;
+}
+
+.temp {
+    position: relative;
+    top: -2px;
+    margin: 10px;
+}
+
+.weight {
+    position: relative;
+    top: 15px
+}

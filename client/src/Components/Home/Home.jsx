@@ -9,6 +9,8 @@ import SearchBar from "../SearchBar/SearchBar";
 import DogCreate from "../DogCreate/DogCreate";
 import Filters from "../Filters/Filters";
 import Header from "../Header/Header"
+import Style from "./Home.module.css"
+import Image from "../../Images and Videos/DogInWater.jpg"
 
 export default function Home (){
 
@@ -17,6 +19,7 @@ export default function Home (){
 
     const [order, setOrder] = useState('')
     const [currentPage, setCurrentPage] = useState(1)
+    const [currentButton, setCurrentButton] = useState([])
     const [dogsPerPage, setDogsPerPage] = useState(8)
     const indexLastDog = currentPage * dogsPerPage 
     const indexFirstDog = indexLastDog - dogsPerPage 
@@ -61,7 +64,7 @@ export default function Home (){
     }
 
     return (
-        <div>
+        <div className={Style.background}>
             <Header/>
             <SearchBar/>
             <button onClick={(event)=>{handleClick(event)}}>Refresh</button>
@@ -72,13 +75,16 @@ export default function Home (){
                 handleFilterCreated = {handleFilterCreated}
                 />
                 <Paginated
+                currentPage = {currentPage}
                 dogsPerPage= {dogsPerPage}
                 allDogs= {allDogs.length}
                 paginated= {paginated}
                 />
+                <div className={Style.cards}>
                 {
                     currentDogs?.map(dog=>{
                         return (
+                            <div>
                         <DogCard 
                         id={dog.id} 
                         name={dog.name} 
@@ -87,10 +93,11 @@ export default function Home (){
                         image={dog.image} 
                         temperament={dog.temperament}
                         />
+                        </div>
                         )
                     })
                 }
-
+                </div>
         </div>
     )
 }

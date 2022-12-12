@@ -7,6 +7,7 @@ import DogDetail from './Components/DogDetail/DogDetail';
 
 function App() {
   return (
+    // <div className='Background'>
     <BrowserRouter>
     <div className="App">
       <Switch>
@@ -17,6 +18,7 @@ function App() {
       </Switch>
     </div>
     </BrowserRouter>
+    // </div>
   );
 }
 

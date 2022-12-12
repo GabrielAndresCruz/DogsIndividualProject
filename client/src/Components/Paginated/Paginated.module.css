@@ -1,12 +1,49 @@
-.paginated{
-    display: flex;
-    flex-direction: row;
+.container {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
-.uList {
+.pagination {
+	position: relative;
+	height: 60px;
+	background: rgba(255, 255, 255, 0.05);
+	box-shadow: 5px 5px 30px rgba(255, 255, 255, 0.2);
 	display: flex;
+	align-items: center;
+	justify-content: center;
+	backdrop-filter: blur(3px);
+}
+
+.pagination li {
 	list-style-type: none;
-	column-gap: 12px;
-	margin: 0px;
-	padding: 90px;
+	display: inline-block;
+}
+
+.pagination a {
+	position: relative;
+	display: block;
+	padding: 20px 25px;
+	text-decoration: none;
+	color: #fff;
+	cursor: pointer;
+}
+
+.pagination a:hover {
+	background: rgba(255, 255, 255, 0.05);
+}
+
+.active {
+	background: rgba(255, 255, 255, 0.05);
+}
+
+.hidden {
+	color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.hidden:hover {
+	background: none !important;
 }

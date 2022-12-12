@@ -1,5 +1,4 @@
 
-
 export default function validate (input){
     let errors= {}
 

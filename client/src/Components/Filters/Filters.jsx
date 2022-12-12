@@ -26,12 +26,12 @@ export default function Filters ({
                     <option value="Z-A">Z-A</option>
                 </select>
                 <select onChange={event => handleSortByWeight(event)}>
-                <option hidden>Order by weight</option>
+                    <option hidden>Order by weight</option>
                     <option value="MinWeight">Min to Max Weight</option>
                     <option value="MaxWeight">Max to Min Weight</option>
                 </select>
                 <select onChange={event => handleSortByTemperament(event)}>
-                <option hidden>All temperaments</option>
+                    <option hidden>All temperaments</option>
                     {allTemperaments?.map((temp) => (
                         <option value={temp.name}>{temp.name}</option>
                     ))}

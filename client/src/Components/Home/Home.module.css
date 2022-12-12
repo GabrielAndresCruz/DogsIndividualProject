@@ -1,0 +1,26 @@
+.background {
+    height: 100%;
+    margin: 0;
+    background-image: url('../../Images\ and\ Videos/casper.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    backdrop-filter: blur(5px);
+    text-decoration: none !important;
+}
+
+.image {
+    z-index: -1;
+    height: 100%;
+    margin: 0;
+
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+}
