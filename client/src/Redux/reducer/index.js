@@ -2,7 +2,9 @@ const initialState = {
     dogs: [],
     allDog: [],
     temperaments: [],
-    detail: []
+    detail: [],
+    currentPage: 1,
+    currentBottons: []
 }
 
 function rootReducer (state = initialState, action) {
@@ -93,6 +95,16 @@ function rootReducer (state = initialState, action) {
             return {
                 ...state,
                 detail: action.payload
+            }
+        case 'ACTUAL_PAGE':
+            return {
+                ...state,
+                currentPage: action.payload
+            }
+        case 'VIEW_CURRENT_BOTTON':
+            return {
+                ...state,
+                currentBottons: action.payload
             }
         default: 
             return {

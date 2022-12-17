@@ -1,11 +1,17 @@
 import React, { useEffect } from "react";
 import style from "../Paginated/Paginated.module.css"
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setActualPage, 
+    // setViewCurrentBottons
+} from "../../Redux/actions";
 
 export default function Paginated({
-    currentPage,
-    dogsPerPage, 
-    allDogs, 
-    paginated
+    //currentPage
+    // currentButton,
+     dogsPerPage, 
+     allDogs, 
+    //  paginated,
 }){
     const pageNumbers = []
 
@@ -13,18 +19,69 @@ export default function Paginated({
         pageNumbers.push(i)
     }
 
-    // useEffect(()=>{
+    const dispatch = useDispatch()
+    const currentButton = useSelector((state) => state.currentPage)
+    // let viewCurrentButtons = useSelector((state) => state.currentBottons)
 
-    // }, [])
+    // const [currentButton, setCurrentButton] = useState(1)
+    const [viewCurrentButtons, setViewCurrentButtons] = useState([])
+
+    const handlerClick = (number) => {
+        dispatch(setActualPage(number))  
+      }
+
+    // const handleSet = (array) => {
+    //     dispatch(setViewCurrentBottons(array))
+    // }
+    useEffect(()=>{
+        let paginatedBar = [...viewCurrentButtons]
+
+        const initialDots = '...'
+        const leftDots = '...'
+        const rightDots = '...'
+
+        if (pageNumbers.length < 6) {
+            paginatedBar = pageNumbers
+        } else 
+        if (currentButton >= 1 && currentButton <= 3) {
+            paginatedBar = [ 1, 2, 3, 4, initialDots, pageNumbers.length]
+        } else 
+        if (currentButton === 4) {
+            const pageSliced = pageNumbers.slice(0,5)
+            paginatedBar = [...pageSliced, initialDots, pageNumbers.length]
+        } else 
+        if (currentButton > 4 && currentButton < pageNumbers.length - 2) {
+            const firtsNumbersPage = pageNumbers.slice(currentButton - 2, currentButton)
+            const lastNumberPage = pageNumbers.slice(currentButton, currentButton + 1)
+            paginatedBar = ([1, leftDots, ...firtsNumbersPage, ...lastNumberPage, rightDots, pageNumbers.length])
+        } else 
+        if (currentButton > pageNumbers.length - 3){
+            const lastsNumbersPages = pageNumbers.slice(pageNumbers.length - 4)
+            paginatedBar = ([1, leftDots, ...lastsNumbersPages])
+        } /*else*/ 
+        // if (currentButton === initialDots) {
+        //     setCurrentButton(viewCurrentButtons[viewCurrentButtons.length-3] + 1)
+        // } else 
+        // if (currentButton === leftDots) {
+        //     setCurrentButton(viewCurrentButtons[3] - 2)
+        // } else
+        // if (currentButton === rightDots) {
+        //     setCurrentButton(viewCurrentButtons[3] + 2)
+        // }
+        // handleSet(paginatedBar)
+        // dispatch(setActualPage(currentButton))
+        setViewCurrentButtons(paginatedBar)
+        // paginated(currentButton)
+    }, [currentButton])
 
     return (
         <div className={style.container}>
         <nav>
             <ul className={style.pagination}>
                 {
-                    currentPage > 1 ? (
+                    currentButton > 1 ? (
                         <li>
-                            <a onClick = {()=> paginated(currentPage - 1)}> Previous </a>
+                            <a onClick = {()=> handlerClick(currentButton - 1)}> Previous </a>
                         </li>
                     ) :
                      (  <li>
@@ -32,16 +89,18 @@ export default function Paginated({
                         </li>
                     ) 
                 }
-                {pageNumbers && pageNumbers.map(number => (
-                    
-                    <li className={currentPage === number ? style.active : null} key={number}>
-                    <a onClick= {()=>paginated(number)}>{number}</a>
-                    </li>
-                ))}
                 {
-                    currentPage < allDogs / dogsPerPage ? (
+                    viewCurrentButtons.map(number => (
+                    
+                        <li className={currentButton === number ? style.active : null} key={number}>
+                            <a onClick= {()=>handlerClick(number)}>{number}</a>
+                        </li>
+                    ))
+                }
+                {
+                    currentButton < allDogs / dogsPerPage ? (
                         <li>
-                            <a onClick = {()=> paginated(currentPage + 1)}> Next </a>
+                            <a onClick = {()=> handlerClick(currentButton + 1)}> Next </a>
                         </li>
                     ) : (
                         <li>

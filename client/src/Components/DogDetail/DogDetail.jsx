@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getDetail } from "../../Redux/actions";
+import Style from "./DogDetail.module.css"
 
 export default function DogDetail(props){
     const dispatch = useDispatch()
@@ -14,11 +15,11 @@ export default function DogDetail(props){
 
     
     return (
-        <div>
+        <div className={Style.background}>
             {myDog.length > 0 ? 
-            <div> 
-                <h1>Soy {myDog[0].name}</h1>
-                <img src={myDog[0].image}/>
+            <div className={Style.container}> 
+                <h1>{myDog[0].name}</h1>
+                <img src={myDog[0].image} height="450px"/>
                 <h3>Minimum Weight {myDog[0].min_weight}</h3>
                 <h3>Maximum Weight {myDog[0].max_weight}</h3>
                 <h3>Minimum Height {myDog[0].min_height}</h3>

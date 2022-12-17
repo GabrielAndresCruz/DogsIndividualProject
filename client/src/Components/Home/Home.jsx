@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getDog, filterCreated, orderByLetter, orderByWeight, getTemperaments, filterTemperament } from "../../Redux/actions/index"
+import { getDog, filterCreated, orderByLetter, orderByWeight, getTemperaments, filterTemperament, setActualPage } from "../../Redux/actions/index"
 import { Link } from "react-router-dom"
 import DogCard from "../DogCard/DogCard"
 import Paginated from "../Paginated/Paginated.jsx";
@@ -16,18 +16,23 @@ export default function Home (){
 
     const dispatch = useDispatch()
     const allDogs = useSelector((state) => state.dogs)
+    const currentPage = useSelector((state) => state.currentPage)
 
     const [order, setOrder] = useState('')
-    const [currentPage, setCurrentPage] = useState(1)
-    const [currentButton, setCurrentButton] = useState([])
+    // const [currentPage, setCurrentPage] = useState(0)
+    
     const [dogsPerPage, setDogsPerPage] = useState(8)
     const indexLastDog = currentPage * dogsPerPage 
     const indexFirstDog = indexLastDog - dogsPerPage 
     const currentDogs = allDogs.slice(indexFirstDog, indexLastDog)
 
-    const paginated = (pageNumber) =>{
-        setCurrentPage(pageNumber)
-    }
+    // const paginated = (pageNumber) =>{
+    //     setCurrentPage(pageNumber)
+    // }
+
+    // const changePaginatedBar = (event) => {
+    //     setCurrentButton(event)
+    // }
 
     useEffect(()=>{
         dispatch(getDog())
@@ -41,6 +46,7 @@ export default function Home (){
 
     const handleFilterCreated = (event) => {
         dispatch(filterCreated(event.target.value))
+        // setCurrentPage(1)
     }
 
     const handleSortByLetter = (event) => {
@@ -60,9 +66,12 @@ export default function Home (){
     const handleSortByTemperament = (event) => {
         event.preventDefault()
         dispatch(filterTemperament(event.target.value))
-        setCurrentPage(1);
+        // setCurrentPage(1);
     }
 
+    if (allDogs.length === 0){
+        return <h2>Loading...</h2>
+    }
     return (
         <div className={Style.background}>
             <Header/>
@@ -75,10 +84,12 @@ export default function Home (){
                 handleFilterCreated = {handleFilterCreated}
                 />
                 <Paginated
-                currentPage = {currentPage}
+                currentButton= {currentPage}
+                // currentButton = {currentButton}
                 dogsPerPage= {dogsPerPage}
                 allDogs= {allDogs.length}
-                paginated= {paginated}
+                // paginated= {paginated}
+                // changePaginatedBar = {changePaginatedBar}
                 />
                 <div className={Style.cards}>
                 {

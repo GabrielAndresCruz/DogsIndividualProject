@@ -78,3 +78,17 @@ export function getDetail (id){
         })
     }
 }
+
+export function setActualPage (payload) {
+    return {
+        type: 'ACTUAL_PAGE',
+        payload
+    }
+}
+
+export function setViewCurrentBottons (payload) {
+    return {
+        type: 'VIEW_CURRENT_BOTTON',
+        payload
+    }
+}
