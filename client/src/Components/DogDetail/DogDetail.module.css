@@ -7,6 +7,11 @@
     background-size: cover;
     background-attachment: fixed;
     backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
     /* text-decoration: none !important; */
     /* min-height: 100%; */
     width: 100%;

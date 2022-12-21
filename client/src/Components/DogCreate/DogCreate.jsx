@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getTemperaments, postDogs } from "../../Redux/actions/index"
 import validate from "./Errors/Errors";
 import Form from "./Form/Form";
+import Style from './DogCreate.module.css'
 
 export default function DogCreate (){
 
@@ -67,8 +68,9 @@ export default function DogCreate (){
     },[])
 
     return (
-        <div>
+        <div className={Style.background}>
             <NavLink to='/home'><button>Back</button></NavLink>
+            <div className={Style.container}>
             <h1>Create your dog</h1>
             <Form 
             handleSumbit = {handleSumbit}
@@ -78,6 +80,7 @@ export default function DogCreate (){
             input = {input}
             errors = {errors}
             />
+            </div>
         </div>
     )
 }
