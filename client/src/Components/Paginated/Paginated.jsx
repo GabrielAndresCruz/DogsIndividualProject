@@ -37,7 +37,7 @@ export default function Paginated({
         let paginatedBar = [...viewCurrentButtons]
 
         const initialDots = '...'
-        const leftDots = '...'
+        const leftDots = '... '
         const rightDots = '...'
 
         if (pageNumbers.length < 6) {
@@ -58,16 +58,16 @@ export default function Paginated({
         if (currentButton > pageNumbers.length - 3){
             const lastsNumbersPages = pageNumbers.slice(pageNumbers.length - 4)
             paginatedBar = ([1, leftDots, ...lastsNumbersPages])
-        } /*else*/ 
-        // if (currentButton === initialDots) {
-        //     setCurrentButton(viewCurrentButtons[viewCurrentButtons.length-3] + 1)
-        // } else 
-        // if (currentButton === leftDots) {
-        //     setCurrentButton(viewCurrentButtons[3] - 2)
-        // } else
-        // if (currentButton === rightDots) {
-        //     setCurrentButton(viewCurrentButtons[3] + 2)
-        // }
+        } else
+        if (currentButton === initialDots) {
+            handlerClick(viewCurrentButtons[viewCurrentButtons.length-3] + 1)
+        } else 
+        if (currentButton === leftDots) {
+            handlerClick(viewCurrentButtons[3] - 2)
+        } else
+        if (currentButton === rightDots) {
+            handlerClick(viewCurrentButtons[3] + 2)
+        }
         // handleSet(paginatedBar)
         // dispatch(setActualPage(currentButton))
         setViewCurrentButtons(paginatedBar)

@@ -32,8 +32,8 @@ function rootReducer (state = initialState, action) {
                 dogs: action.payload === 'All' ? state.allDog : dbFilter
             }
         case "FILTER_TEMPERAMENTS":
-            const dogsTemp = state.allDog.filter((d) =>
-                d.temperament?.includes(action.payload) ? d : null
+            const dogsTemp = state.allDog.filter((d) => 
+            d.temperament?.includes(action.payload) ? d : null
             );
             return {
                ...state,
@@ -75,10 +75,10 @@ function rootReducer (state = initialState, action) {
                     return 0
                 }) : 
                 state.dogs.sort(function (a,b){
-                    if(parseInt(a.min_weight) > parseInt(b.min_weight)){
+                    if(parseInt(a.max_weight) > parseInt(b.max_weight)){
                         return -1
                     }
-                    if(parseInt(a.min_weight) < parseInt(b.min_weight)){
+                    if(parseInt(a.max_weight) < parseInt(b.max_weight)){
                         return 1
                     }
                     return 0

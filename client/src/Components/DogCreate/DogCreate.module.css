@@ -6,9 +6,9 @@
     height: 100vh;
     width: 100%;
     margin: 0;
-    background-image: url('../../Images\ and\ Videos//Jayden-Burdick.png');
+    background-image: url('../../Images\ and\ Videos//DogSleeping.jpg');
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: 0px -12px;
     background-size: cover;
     background-attachment: fixed;
     backdrop-filter: blur(10px);

@@ -16,7 +16,12 @@ export default function Filters ({
     const handleClick = (event) => {
         event.preventDefault();
         dispatch(getDog())
+        // refreshPage()
     }
+
+    const refreshPage = () => {
+        window.location.reload();
+      }
 
     return (
         <div>

@@ -6,6 +6,7 @@ import { getTemperaments, postDogs } from "../../Redux/actions/index"
 import validate from "./Errors/Errors";
 import Form from "./Form/Form";
 import Style from './DogCreate.module.css'
+import DogCard from '../DogCard/DogCard'
 
 export default function DogCreate (){
 
@@ -80,6 +81,11 @@ export default function DogCreate (){
             input = {input}
             errors = {errors}
             />
+            </div>
+            <div>
+            {/* <DogCard
+            input = {input}
+            /> */}
             </div>
         </div>
     )

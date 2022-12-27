@@ -67,6 +67,7 @@ export default function Home (){
         event.preventDefault()
         dispatch(filterTemperament(event.target.value))
         // setCurrentPage(1);
+        dispatch(setActualPage(1))
     }
 
     if (allDogs.length === 0){
@@ -74,9 +75,8 @@ export default function Home (){
     }
     return (
         <div className={Style.background}>
+            <div>
             <Header/>
-            <SearchBar/>
-            <button onClick={(event)=>{handleClick(event)}}>Refresh</button>
                 <Filters
                 handleSortByLetter = {handleSortByLetter}
                 handleSortByWeight = {handleSortByWeight}
@@ -108,6 +108,15 @@ export default function Home (){
                         )
                     })
                 }
+                </div>
+                <Paginated
+                currentButton= {currentPage}
+                // currentButton = {currentButton}
+                dogsPerPage= {dogsPerPage}
+                allDogs= {allDogs.length}
+                // paginated= {paginated}
+                // changePaginatedBar = {changePaginatedBar}
+                />
                 </div>
         </div>
     )

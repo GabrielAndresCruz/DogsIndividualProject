@@ -1,0 +1,61 @@
+.header {
+    height: 30px;
+    position: relative;
+    border: solid 3px white;
+}
+
+.createDogs {
+    position: absolute;
+    top: 0px;
+    left: 100px;
+}
+
+/* .button {
+    background-color: transparent;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #333;
+    cursor: pointer;
+    font-size: 16px;
+    outline: none;
+    padding: 10px 20px;
+    position: relative;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+  } */
+.button {
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.2);
+    border-radius: 4px;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+    backdrop-filter: blur(5px);
+    
+}
+/*   
+  .button::before {
+    content: "";
+    background-color: #fff;
+    border-radius: 100%;
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    left: 50%;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    z-index: -1;
+  }
+  
+  .button:hover {
+    color: #fff;
+  }
+  
+ .button:hover::before {
+    opacity: 1;
+  } */
+
+.searchBar {
+    position: absolute;
+    right: 100px;
+}

@@ -30,7 +30,7 @@ export default function DogDetail(props){
             <p>Loading...</p>
         }
         <NavLink to= '/home'>
-            <button>Home</button>
+            <button>Go Back</button>
         </NavLink>
         </div>
     )

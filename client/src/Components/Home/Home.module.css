@@ -1,13 +1,12 @@
 .background {
     height: 100%;
     margin: 0;
-    background-image: url('../../Images\ and\ Videos/casper.jpg');
+    background-image: url('../../Images\ and\ Videos//DogsPaw.jpg');
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: top left;
     background-size: cover;
-    background-attachment: fixed;
-    backdrop-filter: blur(5px);
-    text-decoration: none !important;
+    background-attachment:fixed;
+    position: relative;
 }
 
 .image {

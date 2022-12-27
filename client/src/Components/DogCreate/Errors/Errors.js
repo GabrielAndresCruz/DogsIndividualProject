@@ -6,7 +6,7 @@ export default function validate (input){
         errors.name = "Must be contain a name"
     } else 
     if (input.name.split('')[0] === ' '){
-        errors.name = "Your can't use tabulation or space in your first box"
+        errors.name = "You can't use tabulation or space in your first box"
     } else 
     if (/\d/.test(input.name)){
         errors.name = "Can't use numbers in name"

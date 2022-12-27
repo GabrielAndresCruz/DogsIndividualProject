@@ -17,6 +17,7 @@
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0,0,0,0.1);
     backdrop-filter: blur(5px);
+    text-decoration: none;
 }
 
 .component:hover {
@@ -25,6 +26,14 @@
 
 .component img {
     padding: 1rem;
+}
+
+.component b {
+    text-decoration: none;
+}
+
+.component p {
+    text-decoration: none;
 }
 
 .temp {
@@ -36,4 +45,8 @@
 .weight {
     position: relative;
     top: 15px
+}
+
+.card {
+    display: flex;
 }
