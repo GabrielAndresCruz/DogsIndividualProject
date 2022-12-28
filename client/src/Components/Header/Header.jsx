@@ -7,13 +7,13 @@ export default function Header () {
     return (
         <div className={Style.header}>
             <div className={Style.createDogs}>
-            <button className={Style.button}>
-                <Link to='/dogs'> CREATE DOG</Link>
-            </button>
+                <button className={Style.button}>
+                    <Link to='/dogs'> CREATE DOG</Link>
+                </button>
             </div>
-            <div className={Style.searchBar}>
-            <SearchBar/>
-            </div>
+                <div className={Style.searchBar}>
+                    <SearchBar/>
+                </div>
         </div>
     )
 }

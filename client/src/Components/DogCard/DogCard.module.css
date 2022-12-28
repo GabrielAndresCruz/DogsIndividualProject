@@ -13,7 +13,7 @@
     text-align: center;
     color: #fff;
     border: 1px solid rgba(255,255,255,0.1);
-    background: rgba(255,255,255,0.2);
+    background: rgba(5, 5, 5, 0.4);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0,0,0,0.1);
     backdrop-filter: blur(5px);
@@ -49,4 +49,13 @@
 
 .card {
     display: flex;
+}
+
+.letters {
+    color: rgb(255, 255, 255);
+    font-family:'Rubik', sans-serif;
+}
+
+.image {
+    filter: brightness(90%);
 }

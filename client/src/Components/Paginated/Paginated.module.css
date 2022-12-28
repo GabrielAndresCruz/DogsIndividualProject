@@ -10,7 +10,7 @@
 .pagination {
 	position: relative;
 	height: 60px;
-	background: rgba(255, 255, 255, 0.05);
+	background: rgba(47, 35, 20, 0.426);
 	box-shadow: 5px 5px 30px rgba(255, 255, 255, 0.2);
 	display: flex;
 	align-items: center;
@@ -33,11 +33,11 @@
 }
 
 .pagination a:hover {
-	background: rgba(255, 255, 255, 0.05);
+	background: rgba(255, 255, 255, 0.28);
 }
 
 .active {
-	background: rgba(255, 255, 255, 0.05);
+	background: rgba(255, 255, 255, 0.28);
 }
 
 .hidden {

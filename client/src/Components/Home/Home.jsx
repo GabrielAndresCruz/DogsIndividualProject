@@ -11,6 +11,7 @@ import Filters from "../Filters/Filters";
 import Header from "../Header/Header"
 import Style from "./Home.module.css"
 import Image from "../../Images and Videos/DogInWater.jpg"
+import Footer from "../Footer/Footer"
 
 export default function Home (){
 
@@ -75,7 +76,7 @@ export default function Home (){
     }
     return (
         <div className={Style.background}>
-            <div>
+            <div >
             <Header/>
                 <Filters
                 handleSortByLetter = {handleSortByLetter}
@@ -118,6 +119,8 @@ export default function Home (){
                 // changePaginatedBar = {changePaginatedBar}
                 />
                 </div>
+                <br /><br />
+                <Footer/>
         </div>
     )
 }

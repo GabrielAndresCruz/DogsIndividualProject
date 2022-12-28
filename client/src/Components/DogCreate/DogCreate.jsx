@@ -26,6 +26,8 @@ export default function DogCreate (){
     })
     const [errors, setErrors] = useState({})
 
+    const [loading, setLoading] = useState(true);
+
     const handleChange = (event) => {
         setInput({...input, [event.target.name]: event.target.value})
         setErrors(validate({...input, [event.target.name]: event.target.value}))
@@ -66,9 +68,15 @@ export default function DogCreate (){
 
     useEffect(()=>{
         dispatch(getTemperaments())
+        const timer = setTimeout(()=>{
+            setLoading(false)
+        },2000)
+        return ()=>clearTimeout(timer)
     },[])
 
     return (
+        <div>{
+            !loading ?
         <div className={Style.background}>
             <NavLink to='/home'><button>Back</button></NavLink>
             <div className={Style.container}>
@@ -87,6 +95,9 @@ export default function DogCreate (){
             input = {input}
             /> */}
             </div>
+        </div>
+        :  <h2>loading</h2> 
+        }
         </div>
     )
 }

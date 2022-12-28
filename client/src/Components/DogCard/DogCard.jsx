@@ -12,12 +12,11 @@ export default function Card(props){
         <div className={style.component}>
             {location.pathname !== '/dogs' ? 
         <NavLink to={`/dogs/${id}`} style={{textDecoration:"none"}}>
-        <div key={id}>
-            <b>{name}</b>
-            <img src={image} width= "250px" height= "200px"/>
+        <div key={id} className={style.letters}>
+            <b >{name}</b>
+            <img src={image} width= "250px" height= "200px" className={style.image}/>
             <b>Temperament</b>
             <p className={style.temp}>{temperament}</p>
-            {console.log(props)}
             <p className={style.weight}><b>Weight: </b>{min_weigth} - {max_weight}</p>
             
         </div>
