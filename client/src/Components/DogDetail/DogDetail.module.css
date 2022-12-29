@@ -1,10 +1,10 @@
-.background {
+.Background {
     min-height: 100vh;
-    height: 100%;
-    margin: 0;
+    /* height: 100%; */
+    /* margin: 0; */
     background-image: url('../../Images\ and\ Videos/DogsPaw.jpg');
     background-repeat: no-repeat;
-    background-position: top left;
+    /* background-position: top left; */
     background-size: cover;
     background-attachment: fixed;
     backdrop-filter: blur(5px);
@@ -19,16 +19,29 @@
     /* position: absolute; */
 }
 
-.container {
+.Container {
     color: #fff;
     text-align: center;
     padding: 50px 35px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(106, 95, 85, 0.653);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     align-items: center;
-    width: 650px;
+    width: 80em;
+    height: 600px;
     padding: 50px;    
+    box-shadow: -2px -1px 25px 9px rgba(134, 120, 107, 0.653);
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.Image {
+    /* position: absolute; */
+}
+
+.Info {
+    /* position: absolute; */
 }

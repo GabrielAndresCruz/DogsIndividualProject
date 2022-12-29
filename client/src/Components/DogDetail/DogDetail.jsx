@@ -14,20 +14,35 @@ export default function DogDetail(props){
         dispatch(getDetail(props.match.params.id))
     },[])
 
-    
+    console.log(myDog);
     return (
         // <div>
-        <div className={Style.background}>
+        <div className={Style.Background}>
             {myDog.length > 0 ? 
-            <div className={Style.container}> 
-                <h1>{myDog[0].name}</h1>
-                <img src={myDog[0].image} height="450px"/>
-                <h3>Minimum Weight {myDog[0].min_weight}</h3>
-                <h3>Maximum Weight {myDog[0].max_weight}</h3>
-                <h3>Minimum Height {myDog[0].min_height}</h3>
-                <h3>Maximum Height {myDog[0].max_height}</h3>
-                <h3>Life Span {myDog[0].life_span}</h3>
-                <h4>Temperaments {Array.isArray(myDog[0].temperament) ? myDog[0].temperament.map(temp => temp.name + (" ")) : myDog[0].temperament}</h4>
+            <div className={Style.Container}> 
+                <div className={Style.Image}>
+                    <img src={myDog[0].image} height="450px"/>
+                </div>
+                <div className={Style.Info}>
+                    <h1>{myDog[0].name}</h1>
+                    <p>
+                        Temperaments: {Array.isArray(myDog[0].temperament) ? myDog[0].temperament.map(temp => temp.name + (" ")) : myDog[0].temperament}</p>
+                    <p>
+                        <b>Minimum Weight: </b> {myDog[0].min_weight} kg
+                    </p>
+                    <p>
+                        <b>Maximum Weight: </b>{myDog[0].max_weight} kg
+                    </p>
+                    <p>
+                        <b>Minimum Height: </b>{myDog[0].min_height} cm
+                    </p>
+                    <p>
+                       <b>Maximum Height: </b>{myDog[0].max_height} cm
+                    </p>
+                    <p>
+                      <b>Life Span: </b>{myDog[0].life_span}
+                    </p>
+                </div>
             </div> : 
             <p>Loading...</p>
         }
@@ -35,8 +50,8 @@ export default function DogDetail(props){
             <button>Go Back</button>
         </NavLink>
         <br /><br />
-        <Footer/>
         {/* </div> */}
+        <Footer/>
         </div>
     )
 }
