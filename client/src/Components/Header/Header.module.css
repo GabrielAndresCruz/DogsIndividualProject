@@ -1,7 +1,7 @@
 .header {
     height: 30px;
     position: relative;
-    border: solid 3px white;
+    /* border: solid 3px white; */
 }
 
 .createDogs {

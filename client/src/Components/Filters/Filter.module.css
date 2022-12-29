@@ -1,0 +1,122 @@
+.Main {
+    height: 70px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: rgba(26, 19, 12, 0.972);
+    box-shadow: 0px 0px 10px 4px rgba(26, 19, 12, 0.972);
+}
+
+.Inputs {
+    position: relative;
+    left: -80px;
+    width: 1000px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* justify-content: space-around; */
+}
+
+.Sort {
+    left: 10px;
+    margin: 50px;
+    width: 395px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.Filters {
+    left: 0px;
+    margin: 55px;
+    width: 395px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.Alphabet {
+    height: 2em;
+    width: 12em;
+    color: rgba(0, 0, 0, 0.8);
+    font-family:'Rubik', sans-serif;
+    font-weight:bolder;
+    font-size: 15px;
+    color: #fff;
+    border: 2px rgba(125, 112, 103, 0.327);
+    background-color:#413d33;
+    border-radius: 5px;
+    
+}
+
+
+.Weight {
+    height: 2em;
+    width: 12em;
+    color: rgba(0, 0, 0, 0.8);
+    font-family:'Rubik', sans-serif;
+    font-weight:bolder;
+    font-size: 15px;
+    color: #fff;
+    border: 2px rgba(125, 112, 103, 0.327);
+    background-color:#413d33;
+    border-radius: 5px;
+}
+
+.Temperaments {
+    height: 2em;
+    width: 12em;
+    color: rgba(0, 0, 0, 0.8);
+    font-family:'Rubik', sans-serif;
+    font-weight:bolder;
+    font-size:15px;
+    color: #fff;
+    border: 2px rgba(125, 112, 103, 0.327);
+    background-color:#413d33;
+    border-radius: 5px;
+}
+
+.Dogs {
+    height: 2em;
+    width: 12em;
+    color: rgba(0, 0, 0, 0.8);
+    font-family:'Rubik', sans-serif;
+    font-weight:bolder;
+    font-size: 15px;
+    color: #fff;
+    border: 2px rgba(125, 112, 103, 0.327);
+    background-color:#413d33;
+    border-radius: 5px;
+}
+
+.ButtonColor {
+    color: black;
+}
+
+.Button {
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    background-color: white;
+    outline: none;
+    border: none;
+    height: 2em;
+    width: 8em;
+    font-family:'Rubik', sans-serif;
+    font-weight:bolder;
+    font-size: 1em;
+    color: black;
+    border-radius: 7px;
+}
+
+.Button:hover {
+    box-shadow: 0 6px 8px rgba(169, 165, 163, 0.663);
+    transition: 0.3s;
+  }
+  

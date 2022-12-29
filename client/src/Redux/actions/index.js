@@ -69,6 +69,12 @@ export function orderByWeight (payload){
     }
 }
 
+export function resetFilters (){
+    return {
+        type: 'RESET_FILTER'
+    }
+}
+
 export function getDetail (id){
     return async function(dispatch){
         var json = await axios.get(`http://localhost:3001/dogs/${id}`)

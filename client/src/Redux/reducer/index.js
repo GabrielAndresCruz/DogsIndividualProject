@@ -4,7 +4,8 @@ const initialState = {
     temperaments: [],
     detail: [],
     currentPage: 1,
-    currentBottons: []
+    currentBottons: [],
+    filterSelected: ""
 }
 
 function rootReducer (state = initialState, action) {
@@ -29,7 +30,8 @@ function rootReducer (state = initialState, action) {
             const dbFilter = action.payload === 'dbCreated' ? state.allDog.filter(dogs => dogs.createInDb) : state.allDog.filter(dogs => !dogs.createInDb)
             return {
                 ...state,
-                dogs: action.payload === 'All' ? state.allDog : dbFilter
+                dogs: action.payload === 'All' ? state.allDog : dbFilter,
+                filterSelected: action.payload
             }
         case "FILTER_TEMPERAMENTS":
             const dogsTemp = state.allDog.filter((d) => 
@@ -38,6 +40,7 @@ function rootReducer (state = initialState, action) {
             return {
                ...state,
                 dogs: dogsTemp,
+                filterSelected: action.payload
             };
         case 'ORDER_BY_LETTER':
             const sortedLetter= action.payload === 'A-Z' ?
@@ -61,7 +64,8 @@ function rootReducer (state = initialState, action) {
                 })
             return {
                 ...state,
-                dogs: sortedLetter
+                dogs: sortedLetter,
+                filterSelected: action.payload
             }
         case 'ORDER_BY_WEIGHT':
             const sortedWeight= action.payload === 'MinWeight' ?
@@ -85,7 +89,13 @@ function rootReducer (state = initialState, action) {
                 })
             return {
                 ...state,
-                dogs: sortedWeight
+                dogs: sortedWeight,
+                filterSelected: action.payload
+            }
+        case 'RESET_FILTER':
+            return {
+                ...state,
+                filterSelected: ""
             }
         case 'POST_DOG':
             return {

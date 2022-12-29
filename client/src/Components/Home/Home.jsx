@@ -40,11 +40,6 @@ export default function Home (){
         dispatch(getTemperaments())
     },[])
 
-    const handleClick = (event) => {
-        event.preventDefault()
-        dispatch(getDog())
-    }
-
     const handleFilterCreated = (event) => {
         dispatch(setActualPage(1))
         dispatch(filterCreated(event.target.value))
