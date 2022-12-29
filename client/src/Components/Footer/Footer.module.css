@@ -11,9 +11,10 @@
     box-shadow: 0 8px 8px 15px rgba(0, 0, 0, 0.75);
     z-index: 2;
     text-align: left;
-    padding: 0px 1rem;
+    /* padding: 0px 1rem; */
     height: 66px;
     margin: 0px;
+    width: 100%;
 }
 
 .Description {

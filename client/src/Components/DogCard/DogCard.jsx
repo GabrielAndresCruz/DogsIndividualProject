@@ -8,19 +8,30 @@ export default function Card(props){
     const {id, name, min_weigth, max_weight, image, temperament} = props
     const location = useLocation()
     return (
+        
         <div >
-        <div className={style.component}>
             {location.pathname !== '/dogs' ? 
-        <NavLink to={`/dogs/${id}`} style={{textDecoration:"none"}}>
-        <div key={id} className={style.letters}>
-            <b >{name}</b>
-            <img src={image} width= "250px" height= "200px" className={style.image}/>
-            <b>Temperament</b>
-            <p className={style.temp}>{temperament}</p>
-            <p className={style.weight}><b>Weight: </b>{min_weigth} - {max_weight}</p>
-            
-        </div>
-        </NavLink>
+                <NavLink to={`/dogs/${id}`} style={{textDecoration:"none"}}>
+                    <div className={style.cards} key={id}>
+
+                        <img src={image} width= "250px" height= "200px" className={style.image}/>
+                        <b >{name}</b>
+
+                        <div className={style.cardbody}>
+                            
+                            <div className={style.temperaments}>
+                                <b>Temperament</b>
+                                <p className={style.temp}>{temperament}</p>
+                            </div>
+
+                            <div className={style.weight}>
+                                <b>Weight</b>
+                                <p>{min_weigth}kg - {max_weight}kg</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </NavLink>
         : 
         <div>
         <div key={id}>
@@ -34,6 +45,6 @@ export default function Card(props){
         
         </div>}
         </div>
-        </div>
+        
     )
 }

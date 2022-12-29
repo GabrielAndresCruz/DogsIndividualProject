@@ -31,20 +31,17 @@ export default function DogCreate (){
     const handleChange = (event) => {
         setInput({...input, [event.target.name]: event.target.value})
         setErrors(validate({...input, [event.target.name]: event.target.value}))
-        console.log(input);
     }
 
     const handleSelect = (event) => {
         setInput({...input, temperament: [...input.temperament, event.target.value]})
         setErrors(validate({...input, temperament: [...input.temperament, event.target.value]}))
-        console.log(input);
     }
 
     const handleSumbit = (event) =>{
         event.preventDefault()
-        console.log(input);
         dispatch(postDogs(input))
-        if(errors.name || errors.min_height || errors.max_height || errors.min_weight || errors.max_weight ){
+        if(errors.name || errors.min_height || errors.max_height || errors.min_weight || errors.max_weight){
             alert("You need to complete the fields?")
         } else {
         alert("Your dog has been created.")

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getDetail } from "../../Redux/actions";
 import Style from "./DogDetail.module.css"
+import Footer from "../Footer/Footer"
 
 export default function DogDetail(props){
     const dispatch = useDispatch()
@@ -15,6 +16,7 @@ export default function DogDetail(props){
 
     
     return (
+        // <div>
         <div className={Style.background}>
             {myDog.length > 0 ? 
             <div className={Style.container}> 
@@ -32,6 +34,9 @@ export default function DogDetail(props){
         <NavLink to= '/home'>
             <button>Go Back</button>
         </NavLink>
+        <br /><br />
+        <Footer/>
+        {/* </div> */}
         </div>
     )
 }

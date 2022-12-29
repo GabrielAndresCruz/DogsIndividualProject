@@ -18,7 +18,7 @@ export default function Home (){
     const dispatch = useDispatch()
     const allDogs = useSelector((state) => state.dogs)
     const currentPage = useSelector((state) => state.currentPage)
-
+    
     const [order, setOrder] = useState('')
     // const [currentPage, setCurrentPage] = useState(0)
     
@@ -46,12 +46,14 @@ export default function Home (){
     }
 
     const handleFilterCreated = (event) => {
+        dispatch(setActualPage(1))
         dispatch(filterCreated(event.target.value))
         // setCurrentPage(1)
     }
 
     const handleSortByLetter = (event) => {
         event.preventDefault()
+        dispatch(setActualPage(1))
         dispatch(orderByLetter(event.target.value))
         // setCurrentPage(1)
         setOrder(`Ordered by ${event.target.value}`)
@@ -59,6 +61,7 @@ export default function Home (){
 
     const handleSortByWeight = (event) => {
         event.preventDefault()
+        dispatch(setActualPage(1))
         dispatch(orderByWeight(event.target.value))
         // setCurrentPage(1)
         setOrder(`Ordered by ${event.target.value}`)
@@ -66,9 +69,9 @@ export default function Home (){
 
     const handleSortByTemperament = (event) => {
         event.preventDefault()
+        dispatch(setActualPage(1))
         dispatch(filterTemperament(event.target.value))
         // setCurrentPage(1);
-        dispatch(setActualPage(1))
     }
 
     if (allDogs.length === 0){
@@ -76,14 +79,17 @@ export default function Home (){
     }
     return (
         <div className={Style.background}>
-            <div >
             <Header/>
+            {/* { currentDogs ?  */}
                 <Filters
                 handleSortByLetter = {handleSortByLetter}
                 handleSortByWeight = {handleSortByWeight}
                 handleSortByTemperament = {handleSortByTemperament}
                 handleFilterCreated = {handleFilterCreated}
                 />
+                 {/* : 
+                <h1>Loading...</h1>
+            }  */}
                 <Paginated
                 currentButton= {currentPage}
                 // currentButton = {currentButton}
@@ -118,7 +124,6 @@ export default function Home (){
                 // paginated= {paginated}
                 // changePaginatedBar = {changePaginatedBar}
                 />
-                </div>
                 <br /><br />
                 <Footer/>
         </div>

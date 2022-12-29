@@ -1,5 +1,6 @@
 .background {
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
     margin: 0;
     background-image: url('../../Images\ and\ Videos/DogsPaw.jpg');
     background-repeat: no-repeat;

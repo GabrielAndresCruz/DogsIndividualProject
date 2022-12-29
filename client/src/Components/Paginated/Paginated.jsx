@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setActualPage, 
     // setViewCurrentBottons
 } from "../../Redux/actions";
+import Filters from "../Filters/Filters"
 
 export default function Paginated({
     //currentPage
@@ -72,7 +73,7 @@ export default function Paginated({
         // dispatch(setActualPage(currentButton))
         setViewCurrentButtons(paginatedBar)
         // paginated(currentButton)
-    }, [currentButton])
+    }, [currentButton, <Filters/>])
 
     return (
         <div className={style.container}>
