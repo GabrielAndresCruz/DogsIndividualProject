@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getTemperaments, postDogs } from "../../Redux/actions/index"
 import validate from "./Errors/Errors";
 import Form from "./Form/Form";
@@ -9,11 +9,10 @@ import Style from './DogCreate.module.css'
 import DogCard from '../DogCard/DogCard'
 import Footer from "../Footer/Footer";
 
-export default function DogCreate (){
+export default function DogCreate (props){
 
     const dispatch = useDispatch()
     const history = useHistory()
-    
 
     const [input, setInput] = useState({
         name: "",

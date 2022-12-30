@@ -5,7 +5,10 @@ const initialState = {
     detail: [],
     currentPage: 1,
     currentBottons: [],
-    filterSelected: ""
+    searchBar: "",
+
+    filterName: "",
+    orderName: "",
 }
 
 function rootReducer (state = initialState, action) {
@@ -19,7 +22,7 @@ function rootReducer (state = initialState, action) {
         case 'GET_NAME_DOGS':
             return {
                 ...state,
-                dogs: action.payload
+                dogs: action.payload,
             }
         case 'GET_TEMPERAMENTS':
             return {
@@ -31,7 +34,8 @@ function rootReducer (state = initialState, action) {
             return {
                 ...state,
                 dogs: action.payload === 'All' ? state.allDog : dbFilter,
-                filterSelected: action.payload
+                filterName: action.payload,
+                searchBar: state.searchBar !== "" ? null : ""
             }
         case "FILTER_TEMPERAMENTS":
             const dogsTemp = state.allDog.filter((d) => 
@@ -40,7 +44,8 @@ function rootReducer (state = initialState, action) {
             return {
                ...state,
                 dogs: dogsTemp,
-                filterSelected: action.payload
+                filterName: action.payload,
+                searchBar: state.searchBar !== "" ? null : ""
             };
         case 'ORDER_BY_LETTER':
             const sortedLetter= action.payload === 'A-Z' ?
@@ -65,7 +70,8 @@ function rootReducer (state = initialState, action) {
             return {
                 ...state,
                 dogs: sortedLetter,
-                filterSelected: action.payload
+                orderName: action.payload,
+                searchBar: state.searchBar !== "" ? null : ""
             }
         case 'ORDER_BY_WEIGHT':
             const sortedWeight= action.payload === 'MinWeight' ?
@@ -90,12 +96,21 @@ function rootReducer (state = initialState, action) {
             return {
                 ...state,
                 dogs: sortedWeight,
-                filterSelected: action.payload
+                orderName: action.payload,
+                searchBar: state.searchBar !== "" ? null : ""
             }
         case 'RESET_FILTER':
             return {
                 ...state,
-                filterSelected: ""
+                filterName: "",
+                orderName: "",
+                searchBar: ""
+            }
+        case 'SEARCH_DOG':
+            return {
+                ...state,
+                searchBar: action.payload,
+                // orderName: ""
             }
         case 'POST_DOG':
             return {

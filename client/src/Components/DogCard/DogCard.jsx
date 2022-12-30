@@ -4,7 +4,6 @@ import style from "./DogCard.module.css"
 import { useLocation } from "react-router-dom";
 
 export default function Card(props){
-    console.log(props);
     const {id, name, min_weigth, max_weight, image, temperament} = props
     const location = useLocation()
     return (
@@ -14,7 +13,7 @@ export default function Card(props){
                 <NavLink to={`/dogs/${id}`} style={{textDecoration:"none"}}>
                     <div className={style.cards} key={id}>
 
-                        <img src={image} width= "250px" height= "200px" className={style.image}/>
+                        <img src={image} width= "250px" height= "200px" className={style.image} alt=""/>
                         <b >{name}</b>
 
                         <div className={style.cardbody}>
@@ -35,8 +34,7 @@ export default function Card(props){
             : 
             <div key={id} className={style.Form}>
                 <b className={style.Name}>{props.input.name ? props.input.name : <p>Breed Name</p>}</b>
-                <img src={
-                    props.input.image} width= "250px" height= "200px" className={style.Image}/>
+                <img src={props.input.image} width= "250px" height= "200px" className={style.Image} alt=""/>
                 <p className={style.Temperament}>
                     <b>Temperaments: </b>{props.input.temperament}, 
                 </p>

@@ -19,27 +19,27 @@ export default function Form ({
                 <div>
                     <label>Name: </label>
                     <input type="text" value={input.name} name="name" onChange={(e) => handleChange(e)}/>
-                    {errors.name ? (<span>{errors.name}</span>) : <span></span>}
+                    {input.name.length ?  errors.name && (<span>{errors.name}</span>) : <span></span>}
                 </div>    
                 <div>
                     <label>Minimun height: </label>
                     <input type="text" value={input.min_height} name="min_height" onChange={(e) => handleChange(e)}/>
-                    {errors.min_height ? (<span>{errors.min_height}</span>): <span></span>}
+                    {input.min_height.length ? errors.min_height && (<span>{errors.min_height}</span>): <span></span>}
                 </div>
                 <div>
                     <label>Maximum height: </label>
                     <input type="text" value={input.max_height} name="max_height" onChange={(e) => handleChange(e)}/>
-                    {errors.max_height ? (<span>{errors.max_height}</span>): <span></span>}
+                    {input.max_height.length ? errors.max_height && (<span>{errors.max_height}</span>): <span></span>}
                 </div>
                 <div>
                     <label>Minimun weight: </label>
                     <input type="text" value={input.min_weight} name="min_weight" onChange={(e) => handleChange(e)}/>
-                    {errors.min_weight ? (<span>{errors.min_weight}</span>): <span></span>}
+                    {input.min_weight.length ? errors.min_weight && (<span>{errors.min_weight}</span>): <span></span>}
                 </div>
                 <div>
                     <label>Maximum weight: </label>
                     <input type="text" value={input.max_weight} name="max_weight" onChange={(e) => handleChange(e)}/>
-                    {errors.max_weight ? (<span>{errors.max_weight}</span>): <span></span>}
+                    {input.max_weight.length ? errors.max_weight && (<span>{errors.max_weight}</span>): <span></span>}
                 </div>
                 <div>
                     <label>Life Span: </label>

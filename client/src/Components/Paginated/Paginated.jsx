@@ -22,8 +22,11 @@ export default function Paginated({
 
     const dispatch = useDispatch()
     const currentButton = useSelector((state) => state.currentPage)
+    const filterName = useSelector((state) => state.filterName)
+    const orderName = useSelector((state) => state.orderName)
+    const searchBar = useSelector((state) => state.searchBar)
     // let viewCurrentButtons = useSelector((state) => state.currentBottons)
-
+    
     // const [currentButton, setCurrentButton] = useState(1)
     const [viewCurrentButtons, setViewCurrentButtons] = useState([])
 
@@ -34,6 +37,7 @@ export default function Paginated({
     // const handleSet = (array) => {
     //     dispatch(setViewCurrentBottons(array))
     // }
+
     useEffect(()=>{
         let paginatedBar = [...viewCurrentButtons]
 

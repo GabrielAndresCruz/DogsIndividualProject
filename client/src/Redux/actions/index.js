@@ -75,6 +75,13 @@ export function resetFilters (){
     }
 }
 
+export function searchDog (payload) {
+    return {
+        type: 'SEARCH_DOG',
+        payload
+    }
+}
+
 export function getDetail (id){
     return async function(dispatch){
         var json = await axios.get(`http://localhost:3001/dogs/${id}`)

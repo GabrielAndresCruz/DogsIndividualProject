@@ -2,7 +2,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getDog, filterCreated, orderByLetter, orderByWeight, getTemperaments, filterTemperament, setActualPage } from "../../Redux/actions/index"
-import { Link } from "react-router-dom"
 import DogCard from "../DogCard/DogCard"
 import Paginated from "../Paginated/Paginated.jsx";
 import SearchBar from "../SearchBar/SearchBar";
@@ -16,28 +15,22 @@ import Footer from "../Footer/Footer"
 export default function Home (){
 
     const dispatch = useDispatch()
+    const allBreeds = useSelector((state) => state.allDog)
     const allDogs = useSelector((state) => state.dogs)
     const currentPage = useSelector((state) => state.currentPage)
     
     const [order, setOrder] = useState('')
-    // const [currentPage, setCurrentPage] = useState(0)
     
     const [dogsPerPage, setDogsPerPage] = useState(8)
     const indexLastDog = currentPage * dogsPerPage 
     const indexFirstDog = indexLastDog - dogsPerPage 
     const currentDogs = allDogs.slice(indexFirstDog, indexLastDog)
 
-    // const paginated = (pageNumber) =>{
-    //     setCurrentPage(pageNumber)
-    // }
-
-    // const changePaginatedBar = (event) => {
-    //     setCurrentButton(event)
-    // }
-
     useEffect(()=>{
-        dispatch(getDog())
-        dispatch(getTemperaments())
+        if(allDogs.length === 0 && allBreeds.length === 0){
+            dispatch(getDog())
+            dispatch(getTemperaments())
+        }
     },[])
 
     const handleFilterCreated = (event) => {
@@ -97,7 +90,7 @@ export default function Home (){
                 {
                     currentDogs?.map(dog=>{
                         return (
-                            <div>
+                            <div key={dog.id}>
                         <DogCard 
                         id={dog.id} 
                         name={dog.name} 

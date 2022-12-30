@@ -13,15 +13,17 @@ export default function Filters ({
 
     const dispatch = useDispatch()
     const allTemperaments = useSelector((state) => state.temperaments)
-    const filterSelected = useSelector((state) => state.filterSelected)
+
+    const filterName = useSelector((state) => state.filterName)
+    const orderName = useSelector((state) => state.orderName)
     
 
     const handleClick = (event) => {
-        event.preventDefault();
-        dispatch(setActualPage(1))
+        event.preventDefault()
         dispatch(getDog())
+        dispatch(setActualPage(1))
         dispatch(resetFilters())
-        // refreshPage()
+        // window.location.reload()
     }
 
     return (
@@ -30,35 +32,35 @@ export default function Filters ({
             <div className={Style.Inputs}>
                 <div className={Style.Sort}>
                     
-                        <select value={filterSelected} onChange={event => handleSortByLetter(event)} className={Style.Alphabet}>
-                            <option value="" hidden>Order alphabetically</option>
-                            <option value="A-Z">A-Z</option>
-                            <option value="Z-A">Z-A</option>
+                        <select value={orderName} onChange={event => handleSortByLetter(event)} className={Style.Alphabet}>
+                            <option key="Letter" value="" hidden>Order alphabetically</option>
+                            <option key="A-Z" value="A-Z">A-Z</option>
+                            <option key="Z-A" value="Z-A">Z-A</option>
                         </select>
 
               
-                        <select value={filterSelected} onChange={event => handleSortByWeight(event)} className={Style.Weight}>
-                            <option value="" hidden>Order by weight</option>
-                            <option value="MinWeight">Min to Max Weight</option>
-                            <option value="MaxWeight">Max to Min Weight</option>
+                        <select value={orderName} onChange={event => handleSortByWeight(event)} className={Style.Weight}>
+                            <option key="Weigth" value="" hidden>Order by weight</option>
+                            <option key="MinWeight" value="MinWeight">Min to Max Weight</option>
+                            <option key="MaxWeight" value="MaxWeight">Max to Min Weight</option>
                         </select>
              
                 </div>
 
                 <div className={Style.Filters}>
               
-                        <select value={filterSelected} onChange={event => handleSortByTemperament(event)} className={Style.Temperaments}>
-                            <option value="" hidden>All temperaments</option>
+                        <select value={filterName} onChange={event => handleSortByTemperament(event)} className={Style.Temperaments}>
+                            <option key="temp" value="" hidden>All temperaments</option>
                             {allTemperaments?.map((temp) => (
-                                <option value={temp.name}>{temp.name}</option>
+                                <option key={temp.name} value={temp.name}>{temp.name}</option>
                             ))}
                         </select>
                                  
               
-                        <select value={filterSelected} onChange={(event) => handleFilterCreated(event)} className={Style.Dogs}>
-                            <option value="All">All</option>
-                            <option value="dbCreated">Created</option>
-                            <option value="apiCreated">Existing</option>
+                        <select value={filterName} onChange={(event) => handleFilterCreated(event)} className={Style.Dogs}>
+                            <option key="all" value="All">All</option>
+                            <option key="dbCreated" value="dbCreated">Created</option>
+                            <option key="apiCreated" value="apiCreated">Existing</option>
                         </select>
                 
                 </div>
