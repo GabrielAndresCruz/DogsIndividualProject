@@ -119,3 +119,30 @@
 .cards:hover .cardbody {
     bottom: 0;
 }
+
+.Form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px;
+}
+
+.Name {
+    border: 2px solid black;
+    height: 22px;
+    padding: 1px;
+    margin-bottom: 20px;
+}
+
+.Image {
+    margin-bottom: 20px;
+}
+
+.Temperament {
+    margin-bottom: 18px;
+}
+
+.Description p {
+    margin-bottom: 18px;
+}

@@ -7,6 +7,7 @@ import validate from "./Errors/Errors";
 import Form from "./Form/Form";
 import Style from './DogCreate.module.css'
 import DogCard from '../DogCard/DogCard'
+import Footer from "../Footer/Footer";
 
 export default function DogCreate (){
 
@@ -72,29 +73,31 @@ export default function DogCreate (){
     },[])
 
     return (
-        <div>{
-            !loading ?
-        <div className={Style.background}>
+        <div>
+        <div className={Style.Background}>
+            <div className={Style.Form}>
             <NavLink to='/home'><button>Back</button></NavLink>
-            <div className={Style.container}>
-            <h1>Create your dog</h1>
-            <Form 
-            handleSumbit = {handleSumbit}
-            handleChange = {handleChange}
-            handleSelect = {handleSelect}
-            handleTempDelete = {handleTempDelete}
-            input = {input}
-            errors = {errors}
-            />
+                <div className={Style.Container}>
+                    <h1>Create Your Dog</h1>
+                    <Form 
+                    handleSumbit = {handleSumbit}
+                    handleChange = {handleChange}
+                    handleSelect = {handleSelect}
+                    handleTempDelete = {handleTempDelete}
+                    input = {input}
+                    errors = {errors}
+                    />
+                </div>
             </div>
-            <div>
-            {/* <DogCard
-            input = {input}
-            /> */}
+            <div className={Style.Card}>
+                <DogCard
+                input = {input}
+                /> 
             </div>
         </div>
-        :  <h2>loading</h2> 
-        }
+        <div className={Style.Footer}>
+            <Footer/>
+        </div>
         </div>
     )
 }

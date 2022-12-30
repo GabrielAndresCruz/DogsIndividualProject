@@ -85,6 +85,15 @@ export function getDetail (id){
     }
 }
 
+export function deleteDog (id){
+    return async function(dispatch){
+        await axios.delete(`http://localhost:3001/dogs/${id}`)
+        return dispatch({
+            type: "DELETE_DOG",
+        })
+    }
+}
+
 export function setActualPage (payload) {
     return {
         type: 'ACTUAL_PAGE',

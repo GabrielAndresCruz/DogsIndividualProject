@@ -106,6 +106,10 @@ function rootReducer (state = initialState, action) {
                 ...state,
                 detail: action.payload
             }
+        case 'DELETE_DOG':
+            return {
+                ...state
+            }
         case 'ACTUAL_PAGE':
             return {
                 ...state,

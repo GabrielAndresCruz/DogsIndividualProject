@@ -4,7 +4,7 @@ import style from "./DogCard.module.css"
 import { useLocation } from "react-router-dom";
 
 export default function Card(props){
-
+    console.log(props);
     const {id, name, min_weigth, max_weight, image, temperament} = props
     const location = useLocation()
     return (
@@ -32,18 +32,27 @@ export default function Card(props){
                         </div>
                     </div>
                 </NavLink>
-        : 
-        <div>
-        <div key={id}>
-            <b>{props.input.name}</b>
-            <img src={props.input.image} width= "250px" height= "200px"/>
-            <b>Temperament</b>
-            {/* <p className={style.temp}>{props.input.temperament}</p> */}
-            <p className={style.weight}><b>Weight: </b>{props.input.min_weigth} - {props.input.max_weight}</p>
-        </div>
-       
-        
-        </div>}
+            : 
+            <div key={id} className={style.Form}>
+                <b className={style.Name}>{props.input.name ? props.input.name : <p>Breed Name</p>}</b>
+                <img src={
+                    props.input.image} width= "250px" height= "200px" className={style.Image}/>
+                <p className={style.Temperament}>
+                    <b>Temperaments: </b>{props.input.temperament}, 
+                </p>
+                <div className={style.Description}>
+                    <p className={style.Height}>
+                        <b>Height: </b>{props.input.min_height} cm - {props.input.max_height} cm
+                    </p>
+                    <p className={style.Weight}>
+                        <b>Weight: </b>{props.input.min_weight} kg - {props.input.max_weight} kg
+                    </p>
+                    <p className={style.Lifespan}>
+                        <b>Life span: </b>{props.input.life_span}
+                    </p>
+                </div>
+            </div>
+            }
         </div>
         
     )

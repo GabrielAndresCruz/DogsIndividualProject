@@ -119,8 +119,10 @@ export default function Home (){
                 // paginated= {paginated}
                 // changePaginatedBar = {changePaginatedBar}
                 />
-                <br /><br />
+                <br /><br /><br /><br /><br /><br />
+                <div className={Style.Footer}>
                 <Footer/>
+                </div>
         </div>
     )
 }

@@ -1,9 +1,10 @@
-.background {
+.Background {
     background-image: url('../../Images\ and\ Videos//DogSleeping.jpg');
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-around;
+    min-height: 100vh;
     height: 100vh;
     width: 100%;
     margin: 0;
@@ -12,23 +13,44 @@
     background-size: cover;
     background-attachment: fixed;
     backdrop-filter: blur(10px);
-    /* text-decoration: none !important; */
 }
 
-.container {
+.Container {
     position: relative;
     height: 700px;
     width: 800px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
+    background: rgba(55, 44, 35, 0.35);
+    /* filter:grayscale(50%); */
+    border-radius: 27px;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
     backdrop-filter: blur(5px);
-    box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 30px 10px rgb(42, 37, 32);
 }
 
-.container div {
+.Container h1 {
+    text-shadow: 0px 0px 8px rgb(217, 190, 155);
+}
+
+.Container div {
     margin: 30px;
+}
+
+
+.Card {
+    border: 2px solid black;
+    height: 600px;
+    width: 400px;
+    background: rgba(87, 70, 56, 0.504);
+    /* filter: opacity(68%); */
+    border-radius: 22px;
+    box-shadow: 0px 0px 30px 5px rgb(42, 37, 32);
+}
+
+.Footer {
+    width: 100%;
+    position: absolute;
+    bottom: 3px;
 }

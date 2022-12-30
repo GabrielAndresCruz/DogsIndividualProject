@@ -1,17 +1,6 @@
 const axios = require("axios");
 const { apikey } = process.env;
 
-const passTo = (argumen) => {
-  let temperament = argumen?.split(',')
-  return temperament?.map(temp=>{
-    return {name:temp}
-  })
-  
-  // return temperament?.map(temp => {
-  //   console.log(temp);
-  //   return temp
-  // })
-}
 
 const getApiInfo = async () => {
     const apiUrl = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${apikey}`);
@@ -26,6 +15,7 @@ const getApiInfo = async () => {
         life_span: dog.life_span,
         image: dog.image.url,
         temperament: dog.temperament,
+        createInDb: false
       }
     })
     return apiInfo;

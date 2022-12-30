@@ -36,12 +36,53 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+
+}
+
+.Footer {
+    width: 100%;
+    position: absolute;
+    bottom: 3px;
 }
 
 .Image {
-    /* position: absolute; */
+    --s: 10px;
+    padding: var(--s);
+    border: calc(2*var(--s)) solid #0000;
+    outline: 1px solid #000;
+    outline-offset: calc(-1*var(--s));
+    background: conic-gradient(from 90deg at 1px 1px, #0000 25%, #000 0);
 }
 
 .Info {
-    /* position: absolute; */
+    /* border: 2px solid black; */
+    height: 540px;
+    width: 440px;
+    padding: 20px;
+    margin: 10px;
+    text-align:center;
+    align-items: center;
+}
+
+.Info h1 {
+    margin-top: 34px;
+    margin-bottom: 30px;
+    font-size: 40px;
+    text-shadow: 3px 5px 8px black;
+}
+
+.Description {
+    text-align: left;
+}
+
+.Info p {
+    margin-bottom: 18px;
+    padding: 8px;
+    font-size: 20px;
+    text-shadow: 0px 1px 4px black;
+    text-indent: 10px;
+}
+
+.Info b {
+    text-shadow: 0px 0px 8px black
 }
