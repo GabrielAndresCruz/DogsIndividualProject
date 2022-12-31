@@ -82,12 +82,15 @@
     /* box-sizing: border-box; */
 }
 
+.name {
+    margin-top: 13px;
+    margin-bottom: 16px;
+}
+
 .cards img {
-    height: 80%;
-    position: absolute;
-    left: 20px;
-    bottom: 1px;
-    object-fit:contain;
+    height: 73%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
     filter: brightness(90%);
 }
 

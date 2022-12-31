@@ -12,9 +12,9 @@ export default function Card(props){
             {location.pathname !== '/dogs' ? 
                 <NavLink to={`/dogs/${id}`} style={{textDecoration:"none"}}>
                     <div className={style.cards} key={id}>
+                        <b className={style.name}>{name}</b>
 
                         <img src={image} width= "250px" height= "200px" className={style.image} alt=""/>
-                        <b >{name}</b>
 
                         <div className={style.cardbody}>
                             

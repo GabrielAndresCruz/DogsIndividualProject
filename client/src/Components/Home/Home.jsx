@@ -62,9 +62,9 @@ export default function Home (){
         // setCurrentPage(1);
     }
 
-    if (allDogs.length === 0){
-        return <h2>Loading...</h2>
-    }
+    // if (allDogs.length === 0){
+    //     return <h2>Loading...</h2>
+    // }
     return (
         <div className={Style.background}>
             <Header/>

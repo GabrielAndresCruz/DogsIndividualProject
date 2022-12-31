@@ -8,11 +8,8 @@ import { setActualPage,
 import Filters from "../Filters/Filters"
 
 export default function Paginated({
-    //currentPage
-    // currentButton,
      dogsPerPage, 
      allDogs, 
-    //  paginated,
 }){
     const pageNumbers = []
 
@@ -22,21 +19,13 @@ export default function Paginated({
 
     const dispatch = useDispatch()
     const currentButton = useSelector((state) => state.currentPage)
-    const filterName = useSelector((state) => state.filterName)
-    const orderName = useSelector((state) => state.orderName)
-    const searchBar = useSelector((state) => state.searchBar)
-    // let viewCurrentButtons = useSelector((state) => state.currentBottons)
-    
-    // const [currentButton, setCurrentButton] = useState(1)
+    const dogs = useSelector((state) => state.dogs)
+
     const [viewCurrentButtons, setViewCurrentButtons] = useState([])
 
     const handlerClick = (number) => {
         dispatch(setActualPage(number))  
       }
-
-    // const handleSet = (array) => {
-    //     dispatch(setViewCurrentBottons(array))
-    // }
 
     useEffect(()=>{
         let paginatedBar = [...viewCurrentButtons]
@@ -73,11 +62,10 @@ export default function Paginated({
         if (currentButton === rightDots) {
             handlerClick(viewCurrentButtons[3] + 2)
         }
-        // handleSet(paginatedBar)
-        // dispatch(setActualPage(currentButton))
+
         setViewCurrentButtons(paginatedBar)
-        // paginated(currentButton)
-    }, [currentButton, <Filters/>])
+
+    }, [currentButton, dogs])
 
     return (
         <div className={style.container}>

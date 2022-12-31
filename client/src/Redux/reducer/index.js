@@ -1,5 +1,7 @@
 const initialState = {
     dogs: [],
+    searchDogs: false,
+    foundDogs: [],
     allDog: [],
     temperaments: [],
     detail: [],
@@ -23,6 +25,10 @@ function rootReducer (state = initialState, action) {
             return {
                 ...state,
                 dogs: action.payload,
+                filterName: "",
+                orderName: "",
+                searchDogs: action.payload === "" ? false : true,
+                foundDogs: action.payload
             }
         case 'GET_TEMPERAMENTS':
             return {
@@ -38,9 +44,13 @@ function rootReducer (state = initialState, action) {
                 searchBar: state.searchBar !== "" ? null : ""
             }
         case "FILTER_TEMPERAMENTS":
-            const dogsTemp = state.allDog.filter((d) => 
+            const dogsTemp = state.searchDogs === false ? 
+            state.allDog.filter((d) => 
             d.temperament?.includes(action.payload) ? d : null
-            );
+            ) : 
+            state.foundDogs.filter((d) => 
+            d.temperament?.includes(action.payload) ? d : null
+            )
             return {
                ...state,
                 dogs: dogsTemp,
