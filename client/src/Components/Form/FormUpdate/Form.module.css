@@ -1,0 +1,105 @@
+.Name input{
+    background: transparent;
+    border-color: transparent;
+    text-align: center;
+    margin-top: 34px;
+    margin-bottom: 30px;
+    font-size: 40px;
+    color: rgba(255, 240, 222, 0.842);
+    text-shadow: 3px 5px 8px black;
+    font-weight: bolder;
+}
+
+  .Temperament {
+    display: flex;
+    flex-direction: row;
+    max-width: 300px;
+    padding: 0px;
+    height: 26.99px;
+    align-items: center;
+}
+
+.Temperament span {
+    margin: 0px;
+    display: flex;
+    max-width: 310px;
+    /* border: 1px solid black; */
+    flex-direction:row;
+    align-items: center;
+    padding: 7px;
+    color: black;
+    text-shadow: 0px 0px 2px black
+} 
+
+.Description {
+    text-align: left;
+}
+
+.Description label {
+    color: rgba(251, 242, 231, 0.842);
+    text-shadow: 3px 8px 10px black;
+    font-weight: bolder;
+    margin-bottom: 0px;
+    padding: 8px;
+    font-size: 20px;
+    text-shadow: 0px 1px 4px black;
+    text-indent: 0px;
+}
+
+.Description input {
+    font-size: 18px;
+    background: transparent;
+    border: transparent;
+    width: auto;
+    text-shadow: 0px 0px 2px black
+}
+
+.TemperamentInput label {
+    color: rgba(207, 173, 135, 0.842);
+    text-shadow: 1px 1px 15px black;
+}
+
+.Image {
+    position: absolute;
+    right: 630px;
+    width: 550px;
+    top: 444px;
+}
+
+.Image input {
+    background: rgba(114, 103, 90, 0.885);
+    height: 22px;
+    width: 444px;
+    border: 2.6px solid rgba(60, 55, 50, 0.885);
+    border-radius: 5px;
+    padding: 6px;
+}
+
+.Button {
+    position: relative;
+    bottom: -33px;
+    left: -306px;
+    display: inline-block;
+    color:#fff;
+    font-size: 22px;
+    font-weight: 40px;
+    font-family:'Rubik', sans-serif;
+    border: 2px solid #fff;
+    /* padding: 14px 70px; */
+    border-radius: 10px;
+    cursor: pointer;
+    background: transparent;
+    transition: color 0.4s linear;
+    height: 48px;
+    width: 180px;
+    box-shadow: 0px 0px 5px #fff;
+}
+
+.Button:hover{
+    position: relative;
+    font-size: 23px;
+    color: black;
+    background-color: #fff;
+    z-index: 2;
+    box-shadow: 0px 0px 5px #fff;
+}

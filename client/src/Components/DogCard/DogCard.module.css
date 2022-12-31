@@ -149,3 +149,8 @@
 .Description p {
     margin-bottom: 18px;
 }
+
+.TempList{
+    display: flex;
+    flex-direction: row;
+}

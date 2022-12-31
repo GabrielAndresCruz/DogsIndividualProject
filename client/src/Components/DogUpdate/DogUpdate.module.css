@@ -1,0 +1,94 @@
+.Background {
+    background-image: url('../../Images\ and\ Videos//DogSleeping.jpg');
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-position: 0px -12px;
+    background-size: cover;
+    background-attachment: fixed;
+    backdrop-filter: blur(10px);
+}
+
+/* .Container {
+    position: relative;
+    height: 700px;
+    width: 800px;
+    background: rgba(55, 44, 35, 0.35);
+    border-radius: 27px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    backdrop-filter: blur(5px);
+    box-shadow: 0px 0px 30px 10px rgb(42, 37, 32);
+} */
+
+.Container {
+    color: #fff;
+    text-align: center;
+    padding: 50px 35px;
+    background: rgba(106, 95, 85, 0.653);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    align-items:center;
+    width: 80em;
+    height: 670px;
+    padding: 50px;    
+    box-shadow: -2px -1px 25px 9px rgba(134, 120, 107, 0.653);
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+.Container img {
+    --s: 10px;
+    padding: var(--s);
+    border: calc(2*var(--s)) solid #0000;
+    outline: 1px solid #000;
+    outline-offset: calc(-1*var(--s));
+    background: conic-gradient(from 90deg at 1px 1px, #0000 25%, #000 0);
+    position: relative;
+    bottom: 70px;
+}
+
+.Container Form {
+    position: relative;
+    bottom: 8px;
+}
+
+.Container div {
+    margin: 30px;
+}
+
+
+.Card {
+    border: 2px solid black;
+    height: 600px;
+    width: 400px;
+    background: rgba(87, 70, 56, 0.504);
+    /* filter: opacity(68%); */
+    border-radius: 22px;
+    box-shadow: 0px 0px 30px 5px rgb(42, 37, 32);
+}
+
+.Footer {
+    width: 100%;
+    position: absolute;
+    bottom: 3px;
+}
+
+.Header {
+    position: absolute;
+    width: 100%;
+    top:0px
+}

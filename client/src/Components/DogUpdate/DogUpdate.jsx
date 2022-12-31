@@ -2,8 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams, NavLink } from "react-router-dom";
 import { getTemperaments, updateDog } from "../../Redux/actions";
-import Form from "../Form/Form/Form";
+import Form from "../Form/FormUpdate/Form";
 import validate from "../Form/Errors/Errors";
+import Style from "./DogUpdate.module.css"
+import HeaderSimple from "../Header/HeaderSimple/HeaderSimple";
+import Footer from "../Footer/Footer";
 
 export default function DogUpdate () {
     const { id } = useParams()
@@ -68,20 +71,33 @@ export default function DogUpdate () {
     }
 
     return (
-        <div>
-            <Form 
-                handleSumbit = {handleSumbit}
-                handleChange = {handleChange}
-                handleSelect = {handleSelect}
-                handleTempDelete = {handleTempDelete}
-                input = {input}
-                errors = {errors}
-            />
-            <NavLink to={`/dogs/${id}`}>
+        <div className={Style.Background}>
+            <div className={Style.Header}>
+                <HeaderSimple
+                id={id}
+                />
+            </div>
+            <div className={Style.Form}>
+                <div className={Style.Container}>
+                    <img src={input.image} height="400px"/>
+                    <Form 
+                        handleSumbit = {handleSumbit}
+                        handleChange = {handleChange}
+                        handleSelect = {handleSelect}
+                        handleTempDelete = {handleTempDelete}
+                        input = {input}
+                        errors = {errors}
+                    />
+                </div>
+            </div>
+            <div className={Style.Footer}>
+                <Footer/>
+             </div>
+            {/* <NavLink to={`/dogs/${id}`}>
                 <button>
                     Go back
                 </button>
-            </NavLink>
+            </NavLink> */}
         </div>
     )
 }

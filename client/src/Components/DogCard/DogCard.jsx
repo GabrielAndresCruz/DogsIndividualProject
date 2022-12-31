@@ -6,6 +6,7 @@ import { useLocation } from "react-router-dom";
 export default function Card(props){
     const {id, name, min_weigth, max_weight, image, temperament} = props
     const location = useLocation()
+    
     return (
         
         <div >
@@ -36,7 +37,15 @@ export default function Card(props){
                 <b className={style.Name}>{props.input.name ? props.input.name : <p>Breed Name</p>}</b>
                 <img src={props.input.image} width= "250px" height= "200px" className={style.Image} alt=""/>
                 <p className={style.Temperament}>
-                    <b>Temperaments: </b>{props.input.temperament}, 
+                    <b>Temperaments: </b>
+                    <div className={style.TempList}>
+                        {props.input.temperament.map(temp => 
+                        <div>                        
+                            <span>{temp}</span>
+                            <button onClick={()=>props.handleTempDelete(temp)}>X</button>                       
+                        </div>
+                        )} 
+                    </div>
                 </p>
                 <div className={style.Description}>
                     <p className={style.Height}>

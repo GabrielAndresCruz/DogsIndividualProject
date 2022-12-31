@@ -2,7 +2,9 @@ import React from "react"
 import { NavLink, useLocation } from "react-router-dom"
 import Style from "./HeaderSimple.module.css"
 
-export default function HeaderSimple () {
+export default function HeaderSimple (props) {
+
+    const { id } = props
 
     const local = useLocation()
 
@@ -12,7 +14,7 @@ export default function HeaderSimple () {
             Style.Detail}>
             <div className={Style.Order}>
                 <button className={Style.Button}>                
-                    <NavLink to={'/home'} style={{textDecoration:"none"}}>
+                    <NavLink to={local.pathname === `/updateDog/${id}` ? `/dogs/${id}` : '/home' } style={{textDecoration:"none"}}>
                             <div className={Style.ButtonColor}>
                                 Go Back
                             </div>

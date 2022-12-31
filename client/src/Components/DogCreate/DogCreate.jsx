@@ -4,7 +4,7 @@ import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getTemperaments, postDogs } from "../../Redux/actions/index"
 import validate from "../Form/Errors/Errors";
-import Form from "../Form/Form/Form";
+import Form from "../Form/FormCreate/Form";
 import Style from './DogCreate.module.css'
 import DogCard from '../DogCard/DogCard'
 import Footer from "../Footer/Footer";
@@ -84,18 +84,19 @@ export default function DogCreate (props){
                 <div className={Style.Container}>
                     <h1>Create Your Dog</h1>
                     <Form 
-                    handleSumbit = {handleSumbit}
-                    handleChange = {handleChange}
-                    handleSelect = {handleSelect}
-                    handleTempDelete = {handleTempDelete}
-                    input = {input}
-                    errors = {errors}
+                        handleSumbit = {handleSumbit}
+                        handleChange = {handleChange}
+                        handleSelect = {handleSelect}
+                        handleTempDelete = {handleTempDelete}
+                        input = {input}
+                        errors = {errors}
                     />
                 </div>
             </div>
             <div className={Style.Card}>
                 <DogCard
                 input = {input}
+                handleTempDelete = {handleTempDelete}
                 /> 
             </div>
         </div>

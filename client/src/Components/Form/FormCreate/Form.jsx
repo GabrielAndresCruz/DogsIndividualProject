@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import Style from "./Form.module.css"
 
 export default function Form ({
     handleSumbit,
@@ -14,7 +15,7 @@ export default function Form ({
 
 
     return (
-        <div>
+        <div className={Style.Container}>
              <form onSubmit={(e) => handleSumbit(e)}>
                 <div>
                     <label>Name: </label>
@@ -51,16 +52,16 @@ export default function Form ({
                 </div>
                 <div>
                     <label>Temperament: </label>
-                <select onChange = {(e) => handleSelect(e)}>
-                    {
-                        temperament.map((temp)=>(
-                            <option value={temp.name}>{temp.name}</option>
-                        ))
-                    }
-                </select>
-                {errors.temperament && (<p>{errors.temperament}</p>)}
+                    <select onChange = {(e) => handleSelect(e)}>
+                        {
+                            temperament.map((temp)=>(
+                                <option value={temp.name}>{temp.name}</option>
+                            ))
+                        }
+                    </select>
+                    {errors.temperament && (<p>{errors.temperament}</p>)}
                 </div>
-                <ul><li>{input.temperament.map(temp => temp + ', ')}</li></ul>
+                {/* <ul><li>{input.temperament.map(temp => temp + ', ')}</li></ul> */}
                 <button type="submit" disabled={
                     !input.name ||
                      !input.min_height ||
@@ -75,14 +76,14 @@ export default function Form ({
                          errors.max_weight || 
                           errors.temperament}>Create dog</button>
             </form>
-                {input.temperament.map(temp => 
+                {/* {input.temperament.map(temp => 
                     <div>
                         
                         <span>{temp}</span>
                         <button onClick={()=>handleTempDelete(temp)}>X</button>
                        
                     </div>
-                    )}
+                    )} */}
         </div>
     )
 }
