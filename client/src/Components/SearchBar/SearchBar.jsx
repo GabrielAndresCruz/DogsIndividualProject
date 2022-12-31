@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getNameDogs, searchDog } from "../../Redux/actions";
+import { getNameDogs, searchDog, setActualPage } from "../../Redux/actions";
 import validate from "./Errors/Errors";
 import Style from "./SearchBar.module.css"
 import Search from "../../Images and Videos/Header/Search.png"
@@ -22,6 +22,7 @@ export default function SearchBar (){
     const handleClick = (event) => {
         event.preventDefault()
         dispatch(getNameDogs(input))
+        dispatch(setActualPage(1))
     }
 
     return (

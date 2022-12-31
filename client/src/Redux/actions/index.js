@@ -92,6 +92,16 @@ export function getDetail (id){
     }
 }
 
+export function updateDog (payload, id){
+    return async function(dispatch){
+        await axios.put(`http://localhost:3001/dogs/${id}`, payload)
+        return dispatch({
+            type: 'UPDATE_DOG',
+            payload,
+        })
+    }
+}
+
 export function deleteDog (id){
     return async function(dispatch){
         await axios.delete(`http://localhost:3001/dogs/${id}`)

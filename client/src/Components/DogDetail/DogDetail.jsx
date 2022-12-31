@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { getDetail, deleteDog } from "../../Redux/actions";
 import Style from "./DogDetail.module.css"
 import Footer from "../Footer/Footer"
+import DogUpdate from "../DogUpdate/DogUpdate";
 
 export default function DogDetail(props){
     const dispatch = useDispatch()
@@ -25,7 +26,6 @@ export default function DogDetail(props){
         history.push('/home', { from: 'DogDetail' })
     }
 
-    console.log(props);
     return (
         // <div>
         <div className={Style.Background}>
@@ -64,7 +64,16 @@ export default function DogDetail(props){
             <button onClick={() => handleBack()}>Go Back</button>
         </NavLink>
         { myDog[0]?.createInDb === true ? 
-            <button onClick={(e)=>handleDelete(e)}>Delete</button>
+            <div>
+                <button onClick={(e)=>handleDelete(e)}>
+                    Delete
+                </button>
+                <NavLink to={`/updateDog/${myDog[0].id}`}>
+                    <button>
+                        Update
+                    </button>
+                </NavLink>
+            </div>
             : null
         }
         <br /><br />

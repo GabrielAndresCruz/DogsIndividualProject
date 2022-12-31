@@ -4,6 +4,7 @@ import LandingPage from './Components/LandingPage/LandingPage'
 import Home from './Components/Home/Home'
 import DogCreate from './Components/DogCreate/DogCreate';
 import DogDetail from './Components/DogDetail/DogDetail';
+import DogUpdate from './Components/DogUpdate/DogUpdate';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route exact path='/home' component={Home}/>
       <Route exact path='/dogs' component={DogCreate}/>
       <Route exact path='/dogs/:id' component={DogDetail}/>
+      <Route exact path='/updateDog/:id' component={DogUpdate}/>
       </Switch>
     </div>
     </BrowserRouter>

@@ -36,10 +36,21 @@ function rootReducer (state = initialState, action) {
                 temperaments: action.payload
             }
         case 'FILTER_CREATED':
-            const dbFilter = action.payload === 'dbCreated' ? state.allDog.filter(dogs => dogs.createInDb) : state.allDog.filter(dogs => !dogs.createInDb)
+            const dbFilter = state.searchDogs === false ? 
+            (action.payload === 'All' ? state.allDog :
+            (action.payload === 'dbCreated' ?
+            state.allDog.filter(dogs => dogs.createInDb) :
+            state.allDog.filter(dogs => !dogs.createInDb)
+            )) : 
+            (action.payload === 'All' ? state.foundDogs :
+            (action.payload === 'dbCreated' ?
+            state.foundDogs.filter(dogs => dogs.createInDb) :
+            state.foundDogs.filter(dogs => !dogs.createInDb)
+            ))
             return {
                 ...state,
-                dogs: action.payload === 'All' ? state.allDog : dbFilter,
+                // dogs: action.payload === 'All' ? state.allDog : dbFilter,
+                dogs: dbFilter,
                 filterName: action.payload,
                 searchBar: state.searchBar !== "" ? null : ""
             }
@@ -130,6 +141,11 @@ function rootReducer (state = initialState, action) {
             return {
                 ...state,
                 detail: action.payload
+            }
+        case 'UPDATE_DOG':
+            return{
+                ...state,
+                allDog: state.allDog.map(dog => dog.id === action.payload.id ? action.payload : dog)
             }
         case 'DELETE_DOG':
             return {
