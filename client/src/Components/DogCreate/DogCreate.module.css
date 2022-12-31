@@ -54,3 +54,9 @@
     position: absolute;
     bottom: 3px;
 }
+
+.Header {
+    position: absolute;
+    width: 100%;
+    top:0px
+}

@@ -86,3 +86,9 @@
 .Info b {
     text-shadow: 0px 0px 8px black
 }
+
+.Header {
+    position: absolute;
+    width: 100%;
+    top:0px
+}

@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams, NavLink } from "react-router-dom";
-import { updateDog } from "../../Redux/actions";
+import { getTemperaments, updateDog } from "../../Redux/actions";
 import Form from "../Form/Form/Form";
 import validate from "../Form/Errors/Errors";
 
@@ -13,8 +13,11 @@ export default function DogUpdate () {
 
     const myDog = useSelector((state) => state.detail)
     
-    let inputTemp = myDog[0].temperament.split(",").map((temp)=>[temp])
-    console.log(inputTemp);
+    useEffect(()=>{
+        dispatch(getTemperaments())
+    },[])
+    const myDogTemperaments = myDog[0].temperament.split(",").map((temp)=>temp.trim())
+    
     const [input, setInput] = useState({
         name: myDog[0].name,
         min_height: myDog[0].min_height,
@@ -23,8 +26,9 @@ export default function DogUpdate () {
         max_weight: myDog[0].max_weight,
         life_span: myDog[0].life_span,
         image: myDog[0].image,
-        temperament: myDog[0].temperament.split(",").map((temp)=>[temp]),
+        temperament: myDogTemperaments[0] == "" ? [] : myDogTemperaments,
     })
+    // myDogTemperaments[0] == "" ? [] : myDogTemperaments
     const [errors, setErrors] = useState({})
 
     const handleChange = (event) => {
@@ -44,6 +48,7 @@ export default function DogUpdate () {
     const handleSumbit = (event) =>{
         event.preventDefault()
         dispatch(updateDog(input, id))
+        console.log(input);
         if(errors.name || errors.min_height || errors.max_height || errors.min_weight || errors.max_weight){
             alert("You need to complete the fields?")
         } else {

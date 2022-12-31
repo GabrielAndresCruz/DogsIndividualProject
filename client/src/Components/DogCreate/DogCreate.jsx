@@ -8,6 +8,7 @@ import Form from "../Form/Form/Form";
 import Style from './DogCreate.module.css'
 import DogCard from '../DogCard/DogCard'
 import Footer from "../Footer/Footer";
+import HeaderSimple from "../Header/HeaderSimple/HeaderSimple";
 
 export default function DogCreate (props){
 
@@ -41,6 +42,7 @@ export default function DogCreate (props){
     const handleSumbit = (event) =>{
         event.preventDefault()
         dispatch(postDogs(input))
+        console.log(input);
         if(errors.name || errors.min_height || errors.max_height || errors.min_weight || errors.max_weight){
             alert("You need to complete the fields?")
         } else {
@@ -74,8 +76,11 @@ export default function DogCreate (props){
     return (
         <div>
         <div className={Style.Background}>
+            <div className={Style.Header}>
+                <HeaderSimple
+                />
+            </div>
             <div className={Style.Form}>
-            <NavLink to='/home'><button>Back</button></NavLink>
                 <div className={Style.Container}>
                     <h1>Create Your Dog</h1>
                     <Form 

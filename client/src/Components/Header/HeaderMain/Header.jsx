@@ -1,6 +1,6 @@
 import React from "react"
 import { NavLink } from "react-router-dom"
-import SearchBar from "../SearchBar/SearchBar"
+import SearchBar from "../../SearchBar/SearchBar"
 import Style from "./Header.module.css"
 
 export default function Header () {

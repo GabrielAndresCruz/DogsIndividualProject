@@ -2,10 +2,12 @@ import React from "react";
 import { NavLink, useHistory} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getDetail, deleteDog } from "../../Redux/actions";
+import { getDetail, deleteDog, getDog, setActualPage } from "../../Redux/actions";
 import Style from "./DogDetail.module.css"
 import Footer from "../Footer/Footer"
 import DogUpdate from "../DogUpdate/DogUpdate";
+import HeaderHandler from "../Header/HeaderHandler/HeaderHandler";
+import HeaderSimple from "../Header/HeaderSimple/HeaderSimple";
 
 export default function DogDetail(props){
     const dispatch = useDispatch()
@@ -20,15 +22,25 @@ export default function DogDetail(props){
         dispatch(deleteDog(props.match.params.id))
         alert("Dog successfully removed")
         history.push('/home')
-    }
-
-    const handleBack = () => {
-        history.push('/home', { from: 'DogDetail' })
+        window.location.reload()
     }
 
     return (
-        // <div>
         <div className={Style.Background}>
+        { 
+            myDog[0]?.createInDb === true ?
+                <div className={Style.Header}>
+                    <HeaderHandler
+                    id = {props.match.params.id}
+                    handleDelete = {handleDelete}
+                    />
+                </div> 
+            :
+                <div className={Style.Header}>
+                    <HeaderSimple                    
+                    />
+                </div> 
+        }
             {myDog.length > 0 ? 
             <div className={Style.Container}> 
                 <div className={Style.Image}>
@@ -60,7 +72,7 @@ export default function DogDetail(props){
             </div> : 
             <p>Loading...</p>
         }
-        <NavLink to= '/home'>
+        {/* <NavLink to= '/home'>
             <button onClick={() => handleBack()}>Go Back</button>
         </NavLink>
         { myDog[0]?.createInDb === true ? 
@@ -75,9 +87,8 @@ export default function DogDetail(props){
                 </NavLink>
             </div>
             : null
-        }
+        } */}
         <br /><br />
-        {/* </div> */}
         <div className={Style.Footer}>
         <Footer/>
         </div>

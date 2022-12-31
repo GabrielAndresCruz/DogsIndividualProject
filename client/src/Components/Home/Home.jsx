@@ -7,7 +7,7 @@ import Paginated from "../Paginated/Paginated.jsx";
 import SearchBar from "../SearchBar/SearchBar";
 import DogCreate from "../DogCreate/DogCreate";
 import Filters from "../Filters/Filters";
-import Header from "../Header/Header"
+import Header from "../Header/HeaderMain/Header";
 import Style from "./Home.module.css"
 import Image from "../../Images and Videos/DogInWater.jpg"
 import Footer from "../Footer/Footer"
