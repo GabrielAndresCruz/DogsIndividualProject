@@ -29,7 +29,7 @@ export default function SearchBar (){
         <div className={Style.Main}>
             <input type= "text" placeholder= "Search..." onChange={event=>handleInputChange(event)} className={Style.Input} value={input}/>
             {errors !== "" ? (<span>{errors}</span>) : <span></span>}
-            <button type= "submit" onClick={event=>handleClick(event)} className={Style.Button}>
+            <button type= "submit" onClick={event=>handleClick(event)} className={Style.Button} disabled={errors !== ""}>
                 <img src={Search} className={Style.Lens}/>
             </button>
         </div>

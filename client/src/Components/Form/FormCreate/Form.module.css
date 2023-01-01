@@ -1,0 +1,332 @@
+.Container {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    position: relative;
+    left: 0px;
+    width: 800px;
+    /* border: 2px solid black; */
+}
+
+.Description {
+    text-align: left;
+    position: relative;
+    left: 40px;
+}
+
+.Description label {
+    color: rgba(251, 242, 231, 0.842);
+    text-shadow: 3px 8px 10px black;
+    font-weight: bolder;
+    margin-bottom: 0px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 8px;
+    padding-left: 0px;
+    font-size: 20px;
+    text-shadow: 0px 1px 4px black;
+    text-indent: 0px;
+}
+
+/* .Description input {
+    font-size: 18px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    height: 30px;
+    padding-left: 7px;
+    border: transparent;
+    width: auto;
+    text-shadow: 0px 0px 2px black;
+    color: #fff;
+} */
+
+
+.InputName {
+    font-size: 18px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    height: 30px;
+    padding-left: 7px;
+    border: transparent;
+    width: auto;
+    text-shadow: 0px 0px 2px black;
+    color: #fff;
+}
+
+.ErrorNameInput {
+    font-size: 18px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    height: 30px;
+    padding-left: 7px;
+    border: 3px solid rgb(148, 41, 41);
+    width: auto;
+    text-shadow: 0px 0px 2px black;
+    color: rgb(255, 116, 116);
+}
+
+.ErrorName {
+
+	position: absolute;
+	/* max-width: 30em; */
+    width: max-content;
+	left: 280px;
+    top: -46px;
+
+	background-color: #fff;
+	padding: 0.5em 0.725em;
+	font-size: 1.1em;
+	border-radius: 1rem;
+    box-shadow:	0 0.125rem 0.5rem rgba(0, 0, 0, .6), 0 0.0625rem 0.125rem rgba(0, 0, 0, .4);
+    color: rgb(110, 22, 22);
+}
+
+.ErrorName:after {
+    content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+	top: 100%;
+	left: 1.2em; 
+	border: .75rem solid transparent;
+	border-bottom: none;
+
+	border-top-color: #fff;
+	filter: drop-shadow(0 0.0625rem -0.0625rem rgba(0, 0, 0, .1));
+}
+
+
+/*============================================================================================================*/
+
+.Minimum {
+    font-size: 18px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    height: 30px;
+    padding-left: 7px;
+    border: transparent;
+    width: 119px;
+    text-shadow: 0px 0px 2px black;
+    color: #fff;
+}
+
+.ErrorMinimumInput {
+    font-size: 18px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    height: 30px;
+    padding-left: 7px;
+    border: 3px solid rgb(148, 41, 41);
+    width: 125px;
+    text-shadow: 0px 0px 2px black;
+    color: rgb(255, 116, 116);
+}
+
+.ErrorMinimumH {
+
+	position: absolute;
+	/* max-width: 30em; */
+    width: max-content;
+	left: 280px;
+    top: 20px;
+
+	background-color: #fff;
+	padding: 0.5em 0.725em;
+	font-size: 1.1em;
+	border-radius: 1rem;
+    box-shadow:	0 0.125rem 0.5rem rgba(0, 0, 0, .6), 0 0.0625rem 0.125rem rgba(0, 0, 0, .4);
+    color: rgb(110, 22, 22);
+}
+
+.ErrorMinimumH:after {
+    content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+	top: 100%;
+	left: 1.2em; 
+	border: .75rem solid transparent;
+	border-bottom: none;
+
+	border-top-color: #fff;
+	filter: drop-shadow(0 0.0625rem -0.0625rem rgba(0, 0, 0, .1));
+}
+
+/*============================================================================================================*/
+
+.Maximum {
+    font-size: 18px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    height: 30px;
+    padding-left: 7px;
+    border: transparent;
+    width: 117px;
+    text-shadow: 0px 0px 2px black;
+    color: #fff;
+}
+
+.ErrorMaximumInput {
+    font-size: 18px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    height: 30px;
+    padding-left: 7px;
+    border: 3px solid rgb(148, 41, 41);
+    width: 125px;
+    text-shadow: 0px 0px 2px black;
+    color: rgb(255, 116, 116);
+}
+
+.ErrorMaximumH {
+
+	position: absolute;
+	/* max-width: 30em; */
+    width: max-content;
+	left: 280px;
+    top: 85px;
+
+	background-color: #fff;
+	padding: 0.5em 0.725em;
+	font-size: 1.1em;
+	border-radius: 1rem;
+    box-shadow:	0 0.125rem 0.5rem rgba(0, 0, 0, .6), 0 0.0625rem 0.125rem rgba(0, 0, 0, .4);
+    color: rgb(110, 22, 22);
+}
+
+.ErrorMaximumH:after {
+    content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+	top: 100%;
+	left: 1.2em; 
+	border: .75rem solid transparent;
+	border-bottom: none;
+
+	border-top-color: #fff;
+	filter: drop-shadow(0 0.0625rem -0.0625rem rgba(0, 0, 0, .1));
+}
+
+/*============================================================================================================*/
+
+.ErrorMinimumW {
+
+	position: absolute;
+	/* max-width: 30em; */
+    width: max-content;
+	left: 280px;
+    top: 152px;
+
+	background-color: #fff;
+	padding: 0.5em 0.725em;
+	font-size: 1.1em;
+	border-radius: 1rem;
+    box-shadow:	0 0.125rem 0.5rem rgba(0, 0, 0, .6), 0 0.0625rem 0.125rem rgba(0, 0, 0, .4);
+    color: rgb(110, 22, 22);
+}
+
+.ErrorMinimumW:after {
+    content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+	top: 100%;
+	left: 1.2em; 
+	border: .75rem solid transparent;
+	border-bottom: none;
+
+	border-top-color: #fff;
+	filter: drop-shadow(0 0.0625rem -0.0625rem rgba(0, 0, 0, .1));
+}
+
+/*============================================================================================================*/
+
+.ErrorMaximumW {
+
+	position: absolute;
+	/* max-width: 30em; */
+    width: max-content;
+	left: 280px;
+    top: 217px;
+
+	background-color: #fff;
+	padding: 0.5em 0.725em;
+	font-size: 1.1em;
+	border-radius: 1rem;
+    box-shadow:	0 0.125rem 0.5rem rgba(0, 0, 0, .6), 0 0.0625rem 0.125rem rgba(0, 0, 0, .4);
+    color: rgb(110, 22, 22);
+}
+
+.ErrorMaximumW:after {
+    content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+	top: 100%;
+	left: 1.2em; 
+	border: .75rem solid transparent;
+	border-bottom: none;
+
+	border-top-color: #fff;
+	filter: drop-shadow(0 0.0625rem -0.0625rem rgba(0, 0, 0, .1));
+}
+
+/*============================================================================================================*/
+
+.Input {
+    font-size: 18px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    height: 30px;
+    padding-left: 7px;
+    border: transparent;
+    width: auto;
+    text-shadow: 0px 0px 2px black;
+    color: #fff;
+}
+
+/*============================================================================================================*/
+
+.Temperaments {
+    font-size: 18px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    height: 30px;
+    padding-left: 7px;
+    border: transparent;
+    width: auto;
+    text-shadow: 0px 0px 2px black;
+    color: #fff;
+}
+
+
+/*============================================================================================================*/
+
+.Button {
+    position: relative;
+    bottom: -22px;
+    left: 306px;
+    display: inline-block;
+    color:#fff;
+    font-size: 21px;
+    font-weight: 40px;
+    font-family:'Rubik', sans-serif;
+    border: 2px solid rgb(192, 167, 139);
+    border-radius: 10px;
+    cursor: pointer;
+    background: transparent;
+    transition: color 0.4s linear;
+    height: 44px;
+    width: 174px;
+    box-shadow: 0px 0px 5px #fff;
+}
+
+.Button:hover{
+    position: relative;
+    font-size: 23px;
+    color: black;
+    background-color: rgb(192, 167, 139);
+    z-index: 2;
+    box-shadow: 0px 0px 5px #fff;
+}

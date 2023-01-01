@@ -142,6 +142,11 @@ function rootReducer (state = initialState, action) {
                 ...state,
                 detail: action.payload
             }
+        case 'EMPTY_DETAIL':
+            return {
+                ...state,
+                detail: action.payload
+            }
         case 'UPDATE_DOG':
             return{
                 ...state,

@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink, useHistory} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getDetail, deleteDog, getDog, setActualPage } from "../../Redux/actions";
+import { getDetail, deleteDog, getDog, setActualPage, emptyDetail } from "../../Redux/actions";
 import Style from "./DogDetail.module.css"
 import Footer from "../Footer/Footer"
 import DogUpdate from "../DogUpdate/DogUpdate";
@@ -13,9 +13,14 @@ export default function DogDetail(props){
     const dispatch = useDispatch()
     const history = useHistory()
     const myDog = useSelector((state) => state.detail)
+
     useEffect(()=>{
         dispatch(getDetail(props.match.params.id))
     },[])
+
+    useEffect(()=>{
+        dispatch(emptyDetail())
+    },[props.match.params.id])
 
     const handleDelete = (event) => {
         event.preventDefault();

@@ -92,6 +92,13 @@ export function getDetail (id){
     }
 }
 
+export function emptyDetail (){
+    return {
+    type: "EMPTY_DETAIL",
+    payload: [],
+    }
+}
+
 export function updateDog (payload, id){
     console.log(payload);
     return async function(dispatch){

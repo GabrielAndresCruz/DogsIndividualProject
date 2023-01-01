@@ -16,53 +16,56 @@ export default function Form ({
 
     return (
         <div className={Style.Container}>
-             <form onSubmit={(e) => handleSumbit(e)}>
+            <form onSubmit={(e) => handleSumbit(e)}>
+            <div className={Style.Description}>
                 <div>
                     <label>Name: </label>
-                    <input type="text" value={input.name} name="name" onChange={(e) => handleChange(e)}/>
-                    {input.name.length ?  errors.name && (<span>{errors.name}</span>) : <span></span>}
+                    <input type="text" value={input.name} name="name" onChange={(e) => handleChange(e)} autoComplete="off" className={input.name.length ?  (errors.name ? Style.ErrorNameInput : Style.InputName): Style.InputName}/>
+                    {input.name.length ?  errors.name && (<span className={Style.ErrorName}>{errors.name}</span>) : <span></span>}
                 </div>    
                 <div>
-                    <label>Minimun height: </label>
-                    <input type="text" value={input.min_height} name="min_height" onChange={(e) => handleChange(e)}/>
-                    {input.min_height.length ? errors.min_height && (<span>{errors.min_height}</span>): <span></span>}
+                    <label>Minimum height: </label>
+                    <input type="text" value={input.min_height} name="min_height" onChange={(e) => handleChange(e)} autoComplete="off" className={input.min_height.length ? (errors.min_height ? Style.ErrorMinimumInput : Style.Minimum) : Style.Minimum}/>
+                    {input.min_height.length ? errors.min_height && (<span className={Style.ErrorMinimumH}>{errors.min_height}</span>): <span></span>}
                 </div>
                 <div>
                     <label>Maximum height: </label>
-                    <input type="text" value={input.max_height} name="max_height" onChange={(e) => handleChange(e)}/>
-                    {input.max_height.length ? errors.max_height && (<span>{errors.max_height}</span>): <span></span>}
+                    <input type="text" value={input.max_height} name="max_height" onChange={(e) => handleChange(e)} autoComplete="off" className={input.max_height.length ? (errors.max_height ? Style.ErrorMaximumInput : Style.Maximum) : Style.Maximum}/>
+                    {input.max_height.length ? errors.max_height && (<span className={Style.ErrorMaximumH}>{errors.max_height}</span>): <span></span>}
                 </div>
                 <div>
-                    <label>Minimun weight: </label>
-                    <input type="text" value={input.min_weight} name="min_weight" onChange={(e) => handleChange(e)}/>
-                    {input.min_weight.length ? errors.min_weight && (<span>{errors.min_weight}</span>): <span></span>}
+                    <label>Minimum weight: </label>
+                    <input type="text" value={input.min_weight} name="min_weight" onChange={(e) => handleChange(e)} autoComplete="off" className={input.min_weight.length ? (errors.min_weight ? Style.ErrorMinimumInput : Style.Minimum) : Style.Minimum}/>
+                    {input.min_weight.length ? errors.min_weight && (<span className={Style.ErrorMinimumW}>{errors.min_weight}</span>): <span></span>}
                 </div>
                 <div>
                     <label>Maximum weight: </label>
-                    <input type="text" value={input.max_weight} name="max_weight" onChange={(e) => handleChange(e)}/>
-                    {input.max_weight.length ? errors.max_weight && (<span>{errors.max_weight}</span>): <span></span>}
+                    <input type="text" value={input.max_weight} name="max_weight" onChange={(e) => handleChange(e)} autoComplete="off" className={input.max_weight.length ? (errors.max_weight ? Style.ErrorMaximumInput : Style.Maximum) : Style.Maximum}/>
+                    {input.max_weight.length ? errors.max_weight && (<span className={Style.ErrorMaximumW}>{errors.max_weight}</span>): <span></span>}
                 </div>
                 <div>
                     <label>Life Span: </label>
-                    <input type="text" value={input.life_span} name= "life_span" onChange={(e) => handleChange(e)}/>
+                    <input type="text" value={input.life_span} name= "life_span" onChange={(e) => handleChange(e)} autoComplete="off" className={Style.Input}/>
                 </div>
                 <div>
                     <label>Image: </label>
-                    <input type="text" value={input.image} name= "image" onChange={(e) => handleChange(e)}/>
+                    <input type="text" value={input.image} name= "image" onChange={(e) => handleChange(e)} autoComplete="off" className={Style.Input}/>
                 </div>
                 <div>
-                    <label>Temperament: </label>
-                    <select onChange = {(e) => handleSelect(e)}>
+                    <label>Temperaments: </label>
+                    <select onChange = {(e) => handleSelect(e)} className={Style.Temperaments}>
+                        <option value="hidden" hidden> . . . </option>
                         {
                             temperament.map((temp)=>(
                                 <option value={temp.name}>{temp.name}</option>
                             ))
                         }
                     </select>
-                    {errors.temperament && (<p>{errors.temperament}</p>)}
+                    {input.temperament.length ? errors.temperament && (<p>{errors.temperament}</p>): <p></p>}
                 </div>
+            </div>
                 {/* <ul><li>{input.temperament.map(temp => temp + ', ')}</li></ul> */}
-                <button type="submit" disabled={
+                <button type="submit" className={Style.Button} disabled={
                     !input.name ||
                      !input.min_height ||
                       !input.max_height ||

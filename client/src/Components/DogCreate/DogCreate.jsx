@@ -42,7 +42,6 @@ export default function DogCreate (props){
     const handleSumbit = (event) =>{
         event.preventDefault()
         dispatch(postDogs(input))
-        console.log(input);
         if(errors.name || errors.min_height || errors.max_height || errors.min_weight || errors.max_weight){
             alert("You need to complete the fields?")
         } else {

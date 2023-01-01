@@ -67,6 +67,7 @@ export default function DogUpdate () {
         temperament: [],
         })
         history.push(`/dogs/${id}`)
+        // window.location.reload()
         }
     }
 
