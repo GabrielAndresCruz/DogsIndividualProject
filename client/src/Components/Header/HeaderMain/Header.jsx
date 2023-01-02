@@ -7,13 +7,13 @@ export default function Header () {
     return (
         <div className={Style.Main}>
             <div className={Style.Create}>
-                <button className={Style.Button}>
-                    <NavLink to={'/dogs'} style={{textDecoration:"none"}} > 
+                <NavLink to={'/dogs'} style={{textDecoration:"none"}} > 
+                    <button className={Style.Button}>
                         <div className={Style.ButtonColor}>
                             CREATE DOG
                         </div>
-                    </NavLink>
-                </button>
+                    </button>
+                </NavLink>
             </div>
             <div className={Style.SearchBar}>
                 <SearchBar/>

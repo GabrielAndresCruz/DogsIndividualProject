@@ -8,8 +8,8 @@ export default function validate (input){
     if (input.name.split('')[0] === ' '){
         errors.name = "You can't use tabulation or space in your first box"
     } else 
-    if (/\d/.test(input.name)){
-        errors.name = "Can't use numbers in name"
+    if (!/^[ a-zA-Z\t]+$/.test(input.name)){
+        errors.name = "You can only use letters"
     } else
     if (input.name.split('')[0] === input.name.split('')[0].toLowerCase()){
         errors.name = "Your first letter must be capitalized"

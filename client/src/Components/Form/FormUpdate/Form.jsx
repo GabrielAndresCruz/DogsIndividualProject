@@ -24,15 +24,15 @@ export default function Form ({
                 <div className={Style.Description}>
                     <div className={Style.Temperament}>
                         <label className={Style.LabelTemp}>Temperament: </label>
-                        <span className={Style.TempContainer}>
+                        <div className={Style.TempContainer}>
                             {input.temperament.map(temp => 
                                 <span>
                                     <p>{temp}</p>
-                                    <button onClick={()=>handleTempDelete(temp)}>X</button>   
+                                    <button type="button" onClick={()=>handleTempDelete(temp)}>X</button>   
                                 </span>
                                 )
                             }                        
-                        </span>
+                        </div>
                     {errors.temperament && (<p>{errors.temperament}</p>)}
                     </div>                
                     <div className={Style.Min_weight}>
@@ -65,7 +65,7 @@ export default function Form ({
                     </div>
                     <div className={Style.TemperamentInput}>
                         <label>Add Temperaments:</label>
-                        <select onChange = {(e) => handleSelect(e)}>
+                        <select onChange = {(e) => handleSelect(e)} disabled={input.temperament.length > 7}>
                         {
                             temperament.map((temp)=>(
                                 <option value={temp.name}>{temp.name}</option>
@@ -85,7 +85,7 @@ export default function Form ({
                       errors.min_height ||
                        errors.max_height ||
                         errors.min_weight ||
-                         errors.max_weight || 
+                         errors.max_weight ||
                           errors.temperament} 
                           className={Style.Button}>
                     Update Dog

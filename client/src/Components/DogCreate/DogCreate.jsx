@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { NavLink, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getTemperaments, postDogs } from "../../Redux/actions/index"
 import validate from "../Form/Errors/Errors";
@@ -41,10 +41,21 @@ export default function DogCreate (props){
 
     const handleSumbit = (event) =>{
         event.preventDefault()
-        dispatch(postDogs(input))
-        if(errors.name || errors.min_height || errors.max_height || errors.min_weight || errors.max_weight){
-            alert("You need to complete the fields?")
+        // dispatch(postDogs(input))
+        if(!input.name ||
+            !input.min_height ||
+            !input.max_height ||
+            !input.min_weight ||
+            !input.max_weight || 
+            !input.temperament
+            || errors.name
+            || errors.min_height 
+            || errors.max_height 
+            || errors.min_weight 
+            || errors.max_weight){
+            alert("You need to complete the fields")
         } else {
+        dispatch(postDogs({...input, image: input.image == "" ? "https://img.freepik.com/vector-premium/perro-sentado-silueta-vector-fondo-blanco_566661-3319.jpg?w=2000" : input.image}))
         alert("Your dog has been created.")
         setInput({
         name: "",

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams, NavLink } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { getTemperaments, updateDog } from "../../Redux/actions";
 import Form from "../Form/FormUpdate/Form";
 import validate from "../Form/Errors/Errors";
@@ -50,12 +50,23 @@ export default function DogUpdate () {
 
     const handleSumbit = (event) =>{
         event.preventDefault()
-        dispatch(updateDog(input, id))
-        console.log(input);
-        if(errors.name || errors.min_height || errors.max_height || errors.min_weight || errors.max_weight){
-            alert("You need to complete the fields?")
+        // dispatch(updateDog(input, id))
+        if(
+        !input.name ||
+        !input.min_height ||
+        !input.max_height ||
+        !input.min_weight ||
+        !input.max_weight || 
+        !input.temperament
+        || errors.name
+        || errors.min_height 
+        || errors.max_height 
+        || errors.min_weight 
+        || errors.max_weight){
+            alert("You need to fix the errors on the form")
         } else {
-        alert("Your dog has been created.")
+        dispatch(updateDog(input, id))
+        alert("Your dog has been update.")
         setInput({
         name: "",
         min_height: "",
@@ -80,7 +91,7 @@ export default function DogUpdate () {
             </div>
             <div className={Style.Form}>
                 <div className={Style.Container}>
-                    <img src={input.image} height="400px"/>
+                    <img src={input.image === "" ? "https://img.freepik.com/vector-premium/perro-sentado-silueta-vector-fondo-blanco_566661-3319.jpg?w=2000" : input.image} height="400px"/>
                     <Form 
                         handleSumbit = {handleSumbit}
                         handleChange = {handleChange}
@@ -94,11 +105,6 @@ export default function DogUpdate () {
             <div className={Style.Footer}>
                 <Footer/>
              </div>
-            {/* <NavLink to={`/dogs/${id}`}>
-                <button>
-                    Go back
-                </button>
-            </NavLink> */}
         </div>
     )
 }

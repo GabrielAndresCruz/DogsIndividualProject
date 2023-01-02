@@ -34,29 +34,32 @@ export default function Card(props){
                 </NavLink>
             : 
             <div key={id} className={style.Form}>
-                <b className={style.Name}>{props.input.name ? props.input.name : <p>Breed Name</p>}</b>
-                <img src={props.input.image} width= "250px" height= "200px" className={style.Image} alt=""/>
-                <p className={style.Temperament}>
-                    <b>Temperaments: </b>
-                    <div className={style.TempList}>
-                        {props.input.temperament.map(temp => 
-                        <div>                        
-                            <span>{temp}</span>
-                            <button onClick={()=>props.handleTempDelete(temp)}>X</button>                       
-                        </div>
-                        )} 
-                    </div>
-                </p>
-                <div className={style.Description}>
-                    <p className={style.Height}>
-                        <b>Height: </b>{props.input.min_height} cm - {props.input.max_height} cm
-                    </p>
-                    <p className={style.Weight}>
-                        <b>Weight: </b>{props.input.min_weight} kg - {props.input.max_weight} kg
-                    </p>
-                    <p className={style.Lifespan}>
-                        <b>Life span: </b>{props.input.life_span}
-                    </p>
+                <b className={style.Name}>{props.input.name ? props.input.name : <p className={style.NamePlaceHolder}>Breed Name</p>}</b>
+                <img src={props.input.image === "" ? "https://img.freepik.com/vector-premium/perro-sentado-silueta-vector-fondo-blanco_566661-3319.jpg?w=2000" : props.input.image} className={props.input.image === "" ? style.ImageDefault : style.Image} alt=""/>
+                <div className={style.Description}>                    
+                    
+                        <p className={style.Height}>
+                            <b>Height: </b>{props.input.min_height} cm - {props.input.max_height} cm
+                        </p>
+                        <p className={style.Weight}>
+                            <b>Weight: </b>{props.input.min_weight} kg - {props.input.max_weight} kg
+                        </p>
+                        <p className={style.Lifespan}>
+                            <b>Life span: </b>{props.input.life_span}
+                        </p>
+
+                        <p className={style.Temperament}>
+                            <b>Temperaments: </b>
+                            <div className={style.TempList}>
+                                {props.input.temperament.map(temp => 
+                                <span>                        
+                                    <p>{temp}</p>
+                                    <button onClick={()=>props.handleTempDelete(temp)}>x</button>                       
+                                </span>
+                                )} 
+                            </div>
+                        </p>
+
                 </div>
             </div>
             }

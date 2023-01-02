@@ -53,7 +53,7 @@ export default function Form ({
                 </div>
                 <div>
                     <label>Temperaments: </label>
-                    <select onChange = {(e) => handleSelect(e)} className={Style.Temperaments}>
+                    <select onChange = {(e) => handleSelect(e)} className={Style.Temperaments} disabled={input.temperament.length > 7}>
                         <option value="hidden" hidden> . . . </option>
                         {
                             temperament.map((temp)=>(
@@ -64,8 +64,8 @@ export default function Form ({
                     {input.temperament.length ? errors.temperament && (<p>{errors.temperament}</p>): <p></p>}
                 </div>
             </div>
-                {/* <ul><li>{input.temperament.map(temp => temp + ', ')}</li></ul> */}
-                <button type="submit" className={Style.Button} disabled={
+                <button type="submit" className={Style.Button} 
+                disabled={
                     !input.name ||
                      !input.min_height ||
                       !input.max_height ||
@@ -77,16 +77,9 @@ export default function Form ({
                        errors.max_height ||
                         errors.min_weight ||
                          errors.max_weight || 
-                          errors.temperament}>Create dog</button>
+                          errors.temperament}
+                          >Create dog</button>
             </form>
-                {/* {input.temperament.map(temp => 
-                    <div>
-                        
-                        <span>{temp}</span>
-                        <button onClick={()=>handleTempDelete(temp)}>X</button>
-                       
-                    </div>
-                    )} */}
         </div>
     )
 }

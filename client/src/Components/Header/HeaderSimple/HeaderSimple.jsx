@@ -13,13 +13,13 @@ export default function HeaderSimple (props) {
             Style.Create :
             Style.Detail}>
             <div className={Style.Order}>
-                    <NavLink to={local.pathname === `/updateDog/${id}` ? `/dogs/${id}` : '/home' } style={{textDecoration:"none"}}>
-                <button className={Style.Button}>                
+                <NavLink to={local.pathname === `/updateDog/${id}` ? `/dogs/${id}` : '/home' } style={{textDecoration:"none"}}>
+                    <button className={Style.Button}>                
                             <div className={Style.ButtonColor}>
                                 Go Back
                             </div>
-                </button>
-                    </NavLink>
+                    </button>
+                </NavLink>
             </div>
         </div>
     )

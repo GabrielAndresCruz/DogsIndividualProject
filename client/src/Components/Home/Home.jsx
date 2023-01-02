@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getDog, filterCreated, orderByLetter, orderByWeight, getTemperaments, filterTemperament, setActualPage } from "../../Redux/actions/index"
+import { getDog, filterCreated, orderByLetter, orderByWeight, getTemperaments, filterTemperament, setActualPage, updateChange, getNameDogs } from "../../Redux/actions/index"
 import DogCard from "../DogCard/DogCard"
 import Paginated from "../Paginated/Paginated.jsx";
 import SearchBar from "../SearchBar/SearchBar";
@@ -18,6 +18,7 @@ export default function Home (){
     const allBreeds = useSelector((state) => state.allDog)
     const allDogs = useSelector((state) => state.dogs)
     const currentPage = useSelector((state) => state.currentPage)
+    const update = useSelector((state) => state.update)
     
     const [order, setOrder] = useState('')
     
@@ -30,6 +31,12 @@ export default function Home (){
         if(allDogs.length === 0 && allBreeds.length === 0){
             dispatch(getDog())
             dispatch(getTemperaments())
+        }
+
+        if(update === true) {
+            dispatch(getDog())
+            dispatch(setActualPage(currentPage))
+            dispatch(updateChange())
         }
     },[])
 
@@ -68,16 +75,12 @@ export default function Home (){
     return (
         <div className={Style.background}>
             <Header/>
-            {/* { currentDogs ?  */}
                 <Filters
                 handleSortByLetter = {handleSortByLetter}
                 handleSortByWeight = {handleSortByWeight}
                 handleSortByTemperament = {handleSortByTemperament}
                 handleFilterCreated = {handleFilterCreated}
                 />
-                 {/* : 
-                <h1>Loading...</h1>
-            }  */}
                 <Paginated
                 currentButton= {currentPage}
                 // currentButton = {currentButton}

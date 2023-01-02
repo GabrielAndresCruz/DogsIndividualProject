@@ -7,6 +7,9 @@ const initialState = {
     detail: [],
     currentPage: 1,
     currentBottons: [],
+
+    update: false,
+
     searchBar: "",
 
     filterName: "",
@@ -131,7 +134,7 @@ function rootReducer (state = initialState, action) {
             return {
                 ...state,
                 searchBar: action.payload,
-                // orderName: ""
+                update: true,
             }
         case 'POST_DOG':
             return {
@@ -150,11 +153,20 @@ function rootReducer (state = initialState, action) {
         case 'UPDATE_DOG':
             return{
                 ...state,
-                allDog: state.allDog.map(dog => dog.id === action.payload.id ? action.payload : dog)
+                allDog: state.allDog.map(dog => dog.id === action.payload.id ? dog = action.payload.payload : dog),
+                dogs: state.dogs.map(dog => dog.id === action.payload.id ? dog = action.payload.payload : dog),
+                update: true,
+            }
+        case 'UPDATE_CHANGES':
+            return{
+                ...state,
+                update: false,
             }
         case 'DELETE_DOG':
             return {
-                ...state
+                ...state,
+                allDog: state.allDog.filter(dog=>dog.id !== action.payload),
+                dogs: state.dogs.filter(dog=>dog.id !== action.payload)
             }
         case 'ACTUAL_PAGE':
             return {

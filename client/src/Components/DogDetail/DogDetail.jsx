@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, useHistory} from "react-router-dom";
+import { useHistory} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getDetail, deleteDog, getDog, setActualPage, emptyDetail } from "../../Redux/actions";
@@ -27,7 +27,7 @@ export default function DogDetail(props){
         dispatch(deleteDog(props.match.params.id))
         alert("Dog successfully removed")
         history.push('/home')
-        window.location.reload()
+        // window.location.reload()
     }
 
     return (
@@ -77,22 +77,6 @@ export default function DogDetail(props){
             </div> : 
             <p>Loading...</p>
         }
-        {/* <NavLink to= '/home'>
-            <button onClick={() => handleBack()}>Go Back</button>
-        </NavLink>
-        { myDog[0]?.createInDb === true ? 
-            <div>
-                <button onClick={(e)=>handleDelete(e)}>
-                    Delete
-                </button>
-                <NavLink to={`/updateDog/${myDog[0].id}`}>
-                    <button>
-                        Update
-                    </button>
-                </NavLink>
-            </div>
-            : null
-        } */}
         <br /><br />
         <div className={Style.Footer}>
         <Footer/>

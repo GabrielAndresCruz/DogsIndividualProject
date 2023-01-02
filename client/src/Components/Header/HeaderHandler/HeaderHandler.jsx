@@ -7,20 +7,20 @@ export default function HeaderHandler (props) {
     return (
         <div className={Style.Main}>
             <div className={Style.Order}>
-                <button className={Style.Button}>
-                    <NavLink to= {'/home'} style={{textDecoration:"none"}}>
+                <NavLink to= {'/home'} style={{textDecoration:"none"}}>
+                    <button className={Style.Button}>
                         <div className={Style.ButtonColor}>
                             Go Back
                         </div>
-                    </NavLink>
-                </button>
-                <button className={Style.Button}>
-                    <NavLink to={`/updateDog/${id}`} style={{textDecoration:"none"}}>
+                    </button>
+                </NavLink>
+                <NavLink to={`/updateDog/${id}`} style={{textDecoration:"none"}}>
+                    <button className={Style.Button}>
                         <div className={Style.ButtonColor}>
                             Update
                         </div>
-                    </NavLink>
-                </button>
+                    </button>
+                </NavLink>
                 <button className={Style.Button} onClick={(e)=>handleDelete(e)}>                    
                     <div className={Style.ButtonColor}>
                         Delete

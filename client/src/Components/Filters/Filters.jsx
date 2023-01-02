@@ -21,8 +21,8 @@ export default function Filters ({
     const handleClick = (event) => {
         event.preventDefault()
         dispatch(getDog())
-        dispatch(setActualPage(1))
         dispatch(resetFilters())
+        dispatch(setActualPage(1))
         // window.location.reload()
     }
 
@@ -66,13 +66,13 @@ export default function Filters ({
                 </div>
             </div>
 
-                <button onClick={(event)=>handleClick(event)} className={Style.Button}>
-                    <NavLink to='/home' style={{textDecoration:"none"}}>
+                {/* <NavLink to='/home' style={{textDecoration:"none"}}> */}
+                    <button onClick={(event)=>handleClick(event)} className={Style.Button}>
                         <div className={Style.ButtonColor}>
                             <span>Reset filters</span>
                         </div>
-                    </NavLink>
-                </button>
+                    </button>
+                {/* </NavLink> */}
         </div>
     )
 }
