@@ -86,6 +86,7 @@ export default function Home (){
                 // currentButton = {currentButton}
                 dogsPerPage= {dogsPerPage}
                 allDogs= {allDogs.length}
+                dogs = {allDogs}
                 // paginated= {paginated}
                 // changePaginatedBar = {changePaginatedBar}
                 />

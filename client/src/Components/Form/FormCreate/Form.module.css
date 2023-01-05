@@ -300,6 +300,34 @@
     color: #fff;
 }
 
+.ErrorTemperament {
+    position: absolute;
+	/* max-width: 30em; */
+    width: max-content;
+	left: 290px;
+    top: 380px;
+
+	background-color: #fff;
+	padding: 0.5em 0.725em;
+	font-size: 1.1em;
+	border-radius: 1rem;
+    box-shadow:	0 0.125rem 0.5rem rgba(0, 0, 0, .6), 0 0.0625rem 0.125rem rgba(0, 0, 0, .4);
+    color: rgb(110, 22, 22);
+}
+
+.ErrorTemperament:after {
+    content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+	top: 100%;
+	left: 1.2em; 
+	border: .75rem solid transparent;
+	border-bottom: none;
+
+	border-top-color: #fff;
+	filter: drop-shadow(0 0.0625rem -0.0625rem rgba(0, 0, 0, .1));
+}
 
 /*============================================================================================================*/
 

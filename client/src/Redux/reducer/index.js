@@ -126,6 +126,7 @@ function rootReducer (state = initialState, action) {
         case 'RESET_FILTER':
             return {
                 ...state,
+                dogs: state.allDog,
                 filterName: "",
                 orderName: "",
                 searchBar: ""

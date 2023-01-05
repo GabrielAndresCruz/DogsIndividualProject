@@ -35,7 +35,7 @@ export default function Card(props){
             : 
             <div key={id} className={style.Form}>
                 <b className={style.Name}>{props.input.name ? props.input.name : <p className={style.NamePlaceHolder}>Breed Name</p>}</b>
-                <img src={props.input.image === "" ? "https://img.freepik.com/vector-premium/perro-sentado-silueta-vector-fondo-blanco_566661-3319.jpg?w=2000" : props.input.image} className={props.input.image === "" ? style.ImageDefault : style.Image} alt=""/>
+                <img src={props.input.image === "" ? "https://img.freepik.com/vector-premium/perro-sentado-silueta-vector-fondo-blanco_566661-3319.jpg?w=2000" : props.input.image} className={props.input.image === "" ? style.ImageDefault : style.Image} alt="" height="200px"/>
                 <div className={style.Description}>                    
                     
                         <p className={style.Height}>

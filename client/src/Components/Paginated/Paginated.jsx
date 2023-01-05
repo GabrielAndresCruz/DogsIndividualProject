@@ -10,6 +10,7 @@ import Filters from "../Filters/Filters"
 export default function Paginated({
      dogsPerPage, 
      allDogs, 
+     dogs,
 }){
     const pageNumbers = []
 
@@ -19,7 +20,7 @@ export default function Paginated({
 
     const dispatch = useDispatch()
     const currentButton = useSelector((state) => state.currentPage)
-    const dogs = useSelector((state) => state.dogs)
+    // const dogs = useSelector((state) => state.dogs)
 
     const [viewCurrentButtons, setViewCurrentButtons] = useState([])
 

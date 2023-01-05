@@ -61,7 +61,13 @@ export default function Form ({
                             ))
                         }
                     </select>
-                    {input.temperament.length ? errors.temperament && (<p>{errors.temperament}</p>): <p></p>}
+                    {input.temperament.length == 0 ?
+                    (   input.name.length && !errors.name &&
+                        input.min_height.length && !errors.min_height &&
+                        input.max_height.length && !errors.max_height &&
+                        input.min_weight.length && !errors.min_weight &&
+                        input.max_weight.length && !errors.max_weight 
+                        ) && (<span className={Style.ErrorTemperament}>{errors.temperament}</span>): <span></span>}
                 </div>
             </div>
                 <button type="submit" className={Style.Button} 
