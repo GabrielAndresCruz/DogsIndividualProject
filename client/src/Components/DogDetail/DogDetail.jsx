@@ -1,21 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getDetail, deleteDog, getDog, setActualPage, emptyDetail } from "../../Redux/actions";
+import { getDetail, deleteDog, emptyDetail } from "../../Redux/actions";
 import Style from "./DogDetail.module.css"
 import Footer from "../Footer/Footer"
-import DogUpdate from "../DogUpdate/DogUpdate";
 import HeaderHandler from "../Header/HeaderHandler/HeaderHandler";
 import HeaderSimple from "../Header/HeaderSimple/HeaderSimple";
+import Loading from "../Loading/Loading";
+import NotFound from "../NotFound/NotFound";
 
 export default function DogDetail(props){
     const dispatch = useDispatch()
     const history = useHistory()
     const myDog = useSelector((state) => state.detail)
 
+    const [loading, setLoading] = useState(true)
+
     useEffect(()=>{
         dispatch(getDetail(props.match.params.id))
+        const timer = setTimeout(() => {
+            setLoading(false)
+    
+        }, 800);
+        return () => clearTimeout(timer);
     },[])
 
     useEffect(()=>{
@@ -27,7 +35,6 @@ export default function DogDetail(props){
         dispatch(deleteDog(props.match.params.id))
         alert("Dog successfully removed")
         history.push('/home')
-        // window.location.reload()
     }
 
     return (
@@ -46,7 +53,9 @@ export default function DogDetail(props){
                     />
                 </div> 
         }
-            {myDog.length > 0 ? 
+        { !loading ?
+            !myDog.length ? 
+            <NotFound/> :
             <div className={Style.Container}> 
                 <div className={Style.Image}>
                     <img src={myDog[0].image} height="450px"/>
@@ -74,8 +83,9 @@ export default function DogDetail(props){
                     </p>
                 </div>
             </div>
-            </div> : 
-            <p>Loading...</p>
+            </div> 
+        : 
+            <Loading/>
         }
         <br /><br />
         <div className={Style.Footer}>

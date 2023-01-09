@@ -1,31 +1,41 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getDog, filterCreated, orderByLetter, orderByWeight, getTemperaments, filterTemperament, setActualPage, updateChange, getNameDogs } from "../../Redux/actions/index"
+import { useSelector } from "react-redux";
+import { getDog, getTemperaments, setActualPage, updateChange } from "../../Redux/actions";
 import DogCard from "../DogCard/DogCard"
 import Paginated from "../Paginated/Paginated.jsx";
-import SearchBar from "../SearchBar/SearchBar";
-import DogCreate from "../DogCreate/DogCreate";
 import Filters from "../Filters/Filters";
 import Header from "../Header/HeaderMain/Header";
 import Style from "./Home.module.css"
-import Image from "../../Images and Videos/DogInWater.jpg"
 import Footer from "../Footer/Footer"
+import Loading from "../Loading/Loading";
+import NotFound from "../NotFound/NotFound";
+import useFilter from "../Filters/useFilter/useFilter";
 
 export default function Home (){
 
-    const dispatch = useDispatch()
-    const allBreeds = useSelector((state) => state.allDog)
-    const allDogs = useSelector((state) => state.dogs)
+    const {
+        handleFilterCreated,
+        handleSortByLetter, 
+        handleSortByWeight, 
+        handleSortByTemperament,
+        handleReset, 
+        allBreeds, 
+        allDogs,
+        allTemperaments,
+        filterName,
+        orderName, 
+        dispatch} = useFilter()
+
     const currentPage = useSelector((state) => state.currentPage)
     const update = useSelector((state) => state.update)
-    
-    const [order, setOrder] = useState('')
     
     const [dogsPerPage, setDogsPerPage] = useState(8)
     const indexLastDog = currentPage * dogsPerPage 
     const indexFirstDog = indexLastDog - dogsPerPage 
     const currentDogs = allDogs.slice(indexFirstDog, indexLastDog)
+
+    const [loading, setLoading] = useState(true)
 
     useEffect(()=>{
         if(allDogs.length === 0 && allBreeds.length === 0){
@@ -38,77 +48,69 @@ export default function Home (){
             dispatch(setActualPage(currentPage))
             dispatch(updateChange())
         }
+        const timer = setTimeout(() => {
+            setLoading(false)
+    
+        }, 1500);
+        return () => clearTimeout(timer);
     },[])
-
-    const handleFilterCreated = (event) => {
-        dispatch(setActualPage(1))
-        dispatch(filterCreated(event.target.value))
-    }
-
-    const handleSortByLetter = (event) => {
-        event.preventDefault()
-        dispatch(setActualPage(1))
-        dispatch(orderByLetter(event.target.value))
-        setOrder(`Ordered by ${event.target.value}`)
-    }
-
-    const handleSortByWeight = (event) => {
-        event.preventDefault()
-        dispatch(setActualPage(1))
-        dispatch(orderByWeight(event.target.value))
-        setOrder(`Ordered by ${event.target.value}`)
-    }
-
-    const handleSortByTemperament = (event) => {
-        event.preventDefault()
-        dispatch(setActualPage(1))
-        dispatch(filterTemperament(event.target.value))
-    }
 
     return (
         <div className={Style.background}>
             <Header/>
                 <Filters
-                handleSortByLetter = {handleSortByLetter}
-                handleSortByWeight = {handleSortByWeight}
-                handleSortByTemperament = {handleSortByTemperament}
-                handleFilterCreated = {handleFilterCreated}
+                    handleSortByLetter = {handleSortByLetter}
+                    handleSortByWeight = {handleSortByWeight}
+                    handleSortByTemperament = {handleSortByTemperament}
+                    handleFilterCreated = {handleFilterCreated}
+                    handleReset = {handleReset}
+                    allTemperaments = {allTemperaments}
+                    filterName = {filterName}
+                    orderName = {orderName}
                 />
-                <Paginated
-                currentButton= {currentPage}
-                dogsPerPage= {dogsPerPage}
-                allDogs= {allDogs.length}
-                dogs = {allDogs}                
-                />
-                <div className={Style.cards}>
-                {
-                    currentDogs?.map(dog=>{
-                        return (
-                            <div key={dog.id}>
-                        <DogCard 
-                        id={dog.id} 
-                        name={dog.name} 
-                        min_weigth={dog.min_weight} 
-                        max_weight={dog.max_weight} 
-                        image={dog.image} 
-                        temperament={dog.temperament}
-                        />
+                { !loading ? 
+                    !allDogs.length ? 
+                    <div className={Style.cards}>
+                        <NotFound/> 
+                    </div>
+                    :
+                        <div>
+                            <Paginated
+                                currentButton= {currentPage}
+                                dogsPerPage= {dogsPerPage}
+                                allDogs= {allDogs.length}
+                                dogs = {allDogs}                
+                            />
+                            <div className={Style.cards}>
+                            {currentDogs?.map(dog=>{
+                                return (
+                                    <div key={dog.id}>
+                                        <DogCard 
+                                            id={dog.id} 
+                                            name={dog.name} 
+                                            min_weigth={dog.min_weight} 
+                                            max_weight={dog.max_weight} 
+                                            image={dog.image} 
+                                            temperament={dog.temperament}
+                                            />
+                                    </div>
+                                )
+                            })}
+                            </div>
+                            <Paginated
+                                currentButton= {currentPage}
+                                dogsPerPage= {dogsPerPage}
+                                allDogs= {allDogs.length}
+                                dogs = {allDogs}                
+                            />
                         </div>
-                        )
-                    })
-                }
-                </div>
-                <Paginated
-                currentButton= {currentPage}
-                // currentButton = {currentButton}
-                dogsPerPage= {dogsPerPage}
-                allDogs= {allDogs.length}
-                // paginated= {paginated}
-                // changePaginatedBar = {changePaginatedBar}
-                />
+                : 
+                <div className={Style.cards}>
+                    <Loading/>
+                </div>}
                 <br /><br /><br /><br /><br /><br />
                 <div className={Style.Footer}>
-                <Footer/>
+                    <Footer/>
                 </div>
         </div>
     )

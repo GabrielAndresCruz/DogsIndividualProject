@@ -13,6 +13,7 @@
     background-size: cover;
     background-attachment: fixed;
     backdrop-filter: blur(10px);
+    filter: brightness(90%);
 }
 
 .Container {

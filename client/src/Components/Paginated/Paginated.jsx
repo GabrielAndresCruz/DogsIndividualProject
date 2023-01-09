@@ -2,10 +2,7 @@ import React, { useEffect } from "react";
 import style from "../Paginated/Paginated.module.css"
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setActualPage, 
-    // setViewCurrentBottons
-} from "../../Redux/actions";
-import Filters from "../Filters/Filters"
+import { setActualPage } from "../../Redux/actions";
 
 export default function Paginated({
      dogsPerPage, 
@@ -20,7 +17,6 @@ export default function Paginated({
 
     const dispatch = useDispatch()
     const currentButton = useSelector((state) => state.currentPage)
-    // const dogs = useSelector((state) => state.dogs)
 
     const [viewCurrentButtons, setViewCurrentButtons] = useState([])
 

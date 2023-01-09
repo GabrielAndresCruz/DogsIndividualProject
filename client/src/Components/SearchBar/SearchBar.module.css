@@ -15,8 +15,8 @@
     font-family:'Rubik', sans-serif;
     font-weight: bolder;
     font-size: 0.88em;
-    border: 1px solid rgb(200, 200, 200);
-    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(200, 200, 200, 0.9);
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 4px;
     border-color: rgba(255, 255, 255, 0.9);
 }
@@ -38,4 +38,33 @@
 .Lens {
     height: 20px;
     width: 20px;
+}
+
+.Error {
+    position: absolute;
+	/* max-width: 30em; */
+    width: max-content;
+	right: 253px;
+    top: 0px;
+
+	background-color: #fff;
+	padding: 0.5em 0.725em;
+	font-size: 1.1em;
+	border-radius: 1rem;
+    box-shadow:	0 0.125rem 0.5rem rgba(0, 0, 0, .6), 0 0.0625rem 0.125rem rgba(0, 0, 0, .4);
+    color: rgb(110, 22, 22);
+}
+
+.Error::after{
+    content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: 99%;
+	right: 1.2em; 
+	border: .75rem solid transparent;
+	border-right: none;
+
+	border-left-color: #fff;
+	filter: drop-shadow(0 0.0625rem -0.0625rem rgba(0, 0, 0, 0.112));
 }

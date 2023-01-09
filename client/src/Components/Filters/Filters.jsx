@@ -1,30 +1,16 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getDog, resetFilters, setActualPage } from "../../Redux/actions";
-import { NavLink } from "react-router-dom";
 import Style from "./Filter.module.css"
 
 export default function Filters ({
     handleSortByLetter,
     handleSortByWeight,
     handleSortByTemperament,
-    handleFilterCreated
+    handleFilterCreated,
+    handleReset,
+    allTemperaments,
+    filterName,
+    orderName,
 }) {
-
-    const dispatch = useDispatch()
-    const allTemperaments = useSelector((state) => state.temperaments)
-
-    const filterName = useSelector((state) => state.filterName)
-    const orderName = useSelector((state) => state.orderName)
-    
-
-    const handleClick = (event) => {
-        event.preventDefault()
-        dispatch(getDog())
-        dispatch(resetFilters())
-        dispatch(setActualPage(1))
-        // window.location.reload()
-    }
 
     return (
         <div className={Style.Main}>
@@ -65,14 +51,11 @@ export default function Filters ({
                 
                 </div>
             </div>
-
-                {/* <NavLink to='/home' style={{textDecoration:"none"}}> */}
-                    <button onClick={(event)=>handleClick(event)} className={Style.Button}>
+                    <button onClick={(event)=>handleReset(event)} className={Style.Button}>
                         <div className={Style.ButtonColor}>
                             <span>Reset filters</span>
                         </div>
                     </button>
-                {/* </NavLink> */}
         </div>
     )
 }
