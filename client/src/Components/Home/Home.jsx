@@ -68,7 +68,7 @@ export default function Home (){
                     filterName = {filterName}
                     orderName = {orderName}
                 />
-                { !loading ? 
+                {   !loading ? 
                     !allDogs.length ? 
                     <div className={Style.cards}>
                         <NotFound/> 

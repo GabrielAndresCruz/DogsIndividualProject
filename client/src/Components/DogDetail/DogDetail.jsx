@@ -19,11 +19,7 @@ export default function DogDetail(props){
 
     useEffect(()=>{
         dispatch(getDetail(props.match.params.id))
-        const timer = setTimeout(() => {
-            setLoading(false)
-    
-        }, 800);
-        return () => clearTimeout(timer);
+
     },[])
 
     useEffect(()=>{
@@ -53,9 +49,9 @@ export default function DogDetail(props){
                     />
                 </div> 
         }
-        { !loading ?
-            !myDog.length ? 
-            <NotFound/> :
+        { 
+            myDog.length > 0 ? 
+      
             <div className={Style.Container}> 
                 <div className={Style.Image}>
                     <img src={myDog[0].image} height="450px"/>
