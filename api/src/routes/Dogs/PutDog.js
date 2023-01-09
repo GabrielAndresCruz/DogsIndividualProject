@@ -8,41 +8,45 @@ router.put("/:id", async (req, res) => {
     const { id } = req.params;
     const { name, min_height, max_height, min_weight, max_weight, life_span, image, temperament} = req.body;
 
-    // const dog = await Dog.findByPk(id);
 
-    await DogTemperament.destroy({
-        where:{
-            DogId: id
-        }
-    })
-
-    await Dog.update(
-        {
-        name,
-        min_height,
-        max_height,
-        min_weight,
-        max_weight,
-        life_span,
-        image
-        }, {
-        where:{
-            id: id
-        }
-    })
+    try {
+        await DogTemperament.destroy({
+            where:{
+                DogId: id
+            }
+        })
     
-    const dog = await Dog.findByPk(id)
-
-    const dogTemperament = await Temperament.findAll({
-        where: {
-            name: temperament
-        }
-    })
-
-
-    await dog.addTemperament(dogTemperament)
-
-    res.status(200).send("Dog succesfully modificated")
+        await Dog.update(
+            {
+            name,
+            min_height,
+            max_height,
+            min_weight,
+            max_weight,
+            life_span,
+            image
+            }, {
+            where:{
+                id: id
+            }
+        })
+        
+        const dog = await Dog.findByPk(id)
+    
+        const dogTemperament = await Temperament.findAll({
+            where: {
+                name: temperament
+            }
+        })
+    
+    
+        await dog.addTemperament(dogTemperament)
+    
+        res.status(200).send("Dog succesfully modificated")
+        
+    } catch (error) {
+        res.status(400).send(error)
+    }
 })
 
 module.exports = router;

@@ -43,14 +43,12 @@ export default function Home (){
     const handleFilterCreated = (event) => {
         dispatch(setActualPage(1))
         dispatch(filterCreated(event.target.value))
-        // setCurrentPage(1)
     }
 
     const handleSortByLetter = (event) => {
         event.preventDefault()
         dispatch(setActualPage(1))
         dispatch(orderByLetter(event.target.value))
-        // setCurrentPage(1)
         setOrder(`Ordered by ${event.target.value}`)
     }
 
@@ -58,7 +56,6 @@ export default function Home (){
         event.preventDefault()
         dispatch(setActualPage(1))
         dispatch(orderByWeight(event.target.value))
-        // setCurrentPage(1)
         setOrder(`Ordered by ${event.target.value}`)
     }
 
@@ -66,12 +63,8 @@ export default function Home (){
         event.preventDefault()
         dispatch(setActualPage(1))
         dispatch(filterTemperament(event.target.value))
-        // setCurrentPage(1);
     }
 
-    // if (allDogs.length === 0){
-    //     return <h2>Loading...</h2>
-    // }
     return (
         <div className={Style.background}>
             <Header/>
@@ -83,12 +76,9 @@ export default function Home (){
                 />
                 <Paginated
                 currentButton= {currentPage}
-                // currentButton = {currentButton}
                 dogsPerPage= {dogsPerPage}
                 allDogs= {allDogs.length}
-                dogs = {allDogs}
-                // paginated= {paginated}
-                // changePaginatedBar = {changePaginatedBar}
+                dogs = {allDogs}                
                 />
                 <div className={Style.cards}>
                 {

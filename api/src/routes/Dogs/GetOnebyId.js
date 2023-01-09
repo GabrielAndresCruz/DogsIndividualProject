@@ -4,12 +4,17 @@ const router = Router();
 
 router.get("/:id", async(req,res)=>{
     const id = req.params.id
-    const idBreed = await getAllInfo()
-    if(id){
-        const filterBreedById = await idBreed.filter(dog => dog.id == (id))
-        filterBreedById ?
-        res.status(200).send(filterBreedById) :
-        res.status(404).send('There is no breed with that ID')
+    try {
+        const idBreed = await getAllInfo()
+        if(id){
+            const filterBreedById = await idBreed.filter(dog => dog.id == (id))
+            filterBreedById ?
+            res.status(200).send(filterBreedById) :
+            res.status(404).send('There is no breed with that ID')
+        }
+        
+    } catch (error) {
+        res.status(404).send(error)
     }
 })
 
