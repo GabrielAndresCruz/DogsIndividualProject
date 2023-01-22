@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.6e7c2882.chunk.css",
+    "main.js": "/static/js/main.2f49f67b.chunk.js",
+    "main.js.map": "/static/js/main.2f49f67b.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.2cb58ebd.js",
+    "runtime-main.js.map": "/static/js/runtime-main.2cb58ebd.js.map",
+    "static/js/2.5cb0b310.chunk.js": "/static/js/2.5cb0b310.chunk.js",
+    "static/js/2.5cb0b310.chunk.js.map": "/static/js/2.5cb0b310.chunk.js.map",
+    "static/js/3.1d49914b.chunk.js": "/static/js/3.1d49914b.chunk.js",
+    "static/js/3.1d49914b.chunk.js.map": "/static/js/3.1d49914b.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.6e7c2882.chunk.css.map": "/static/css/main.6e7c2882.chunk.css.map",
+    "static/js/2.5cb0b310.chunk.js.LICENSE.txt": "/static/js/2.5cb0b310.chunk.js.LICENSE.txt",
+    "static/media/DogUpdate.module.css": "/static/media/DogSleeping.69428451.jpg",
+    "static/media/Home.module.css": "/static/media/DogsPaw.f926cb69.jpg",
+    "static/media/HEspinosaFilmsDog.e7f86560.mp4": "/static/media/HEspinosaFilmsDog.e7f86560.mp4",
+    "static/media/NotFound.dd74d96e.png": "/static/media/NotFound.dd74d96e.png",
+    "static/media/github.3ec61b93.png": "/static/media/github.3ec61b93.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2cb58ebd.js",
+    "static/js/2.5cb0b310.chunk.js",
+    "static/css/main.6e7c2882.chunk.css",
+    "static/js/main.2f49f67b.chunk.js"
+  ]
+}
