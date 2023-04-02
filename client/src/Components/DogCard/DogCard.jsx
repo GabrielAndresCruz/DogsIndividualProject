@@ -4,7 +4,7 @@ import style from "./DogCard.module.css"
 import { useLocation } from "react-router-dom";
 
 export default function Card(props){
-    const {id, name, min_weigth, max_weight, image, temperament} = props
+    const {id, name, min_weigth, max_weight, image, life_span, temperament} = props
     const location = useLocation()
     
     return (

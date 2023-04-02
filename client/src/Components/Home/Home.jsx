@@ -54,7 +54,7 @@ export default function Home (){
         }, 1500);
         return () => clearTimeout(timer);
     },[])
-
+    console.log(currentDogs);
     return (
         <div className={Style.background}>
             <Header/>
@@ -90,7 +90,7 @@ export default function Home (){
                                             name={dog.name} 
                                             min_weigth={dog.min_weight} 
                                             max_weight={dog.max_weight} 
-                                            image={dog.image} 
+                                            image={dog.image}
                                             temperament={dog.temperament}
                                             />
                                     </div>

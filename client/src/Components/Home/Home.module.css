@@ -24,6 +24,8 @@
     flex-wrap: wrap;
     text-align: center;
     justify-content: center;
+    max-width: 80%;
+    margin: auto;
 }
 
 /* .overlay {
