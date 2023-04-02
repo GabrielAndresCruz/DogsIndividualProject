@@ -7,7 +7,7 @@ import DogDetail from './Components/DogDetail/DogDetail';
 import DogUpdate from './Components/DogUpdate/DogUpdate';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://dogsindividualproject-production.up.railway.app/'
+axios.defaults.baseURL = 'https://dogsindividualproject-production.up.railway.app/'
 
 function App() {
   return (
