@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export function getDog (){
     return async function(dispatch){
-        var json = await axios.get("http://localhost:3001/dogs")
+        var json = await axios.get("/dogs")
         return dispatch({
             type: 'GET_DOGS',
             payload: json.data
@@ -12,7 +12,7 @@ export function getDog (){
 
 export function getNameDogs (name){
     return async function (dispatch){
-            var json = await axios.get(`http://localhost:3001/dogs?name=${name}`)
+            var json = await axios.get(`/dogs?name=${name}`)
             return dispatch({
                 type: 'GET_NAME_DOGS',
                 payload: json.data
@@ -22,7 +22,7 @@ export function getNameDogs (name){
 
 export function getTemperaments (){
     return async function (dispatch){
-        var json = await axios.get("http://localhost:3001/temperaments")
+        var json = await axios.get("/temperaments")
         return dispatch({
             type: 'GET_TEMPERAMENTS',
             payload: json.data
@@ -32,7 +32,7 @@ export function getTemperaments (){
 
 export function postDogs (payload){
     return async function (){
-        const response = await axios.post("http://localhost:3001/dogs", payload)
+        const response = await axios.post("/dogs", payload)
         return response
     }
 }
@@ -80,7 +80,7 @@ export function searchDog (payload) {
 
 export function getDetail (id){
     return async function(dispatch){
-        var json = await axios.get(`http://localhost:3001/dogs/${id}`)
+        var json = await axios.get(`/dogs/${id}`)
         return dispatch({
             type: "GET_DETAIL",
             payload: json.data
@@ -98,7 +98,7 @@ export function emptyDetail (){
 export function updateDog (payload, id){
     console.log(payload);
     return async function(dispatch){
-        await axios.put(`http://localhost:3001/dogs/${id}`, payload)
+        await axios.put(`/dogs/${id}`, payload)
         return dispatch({
             type: 'UPDATE_DOG',
             payload: {
@@ -119,7 +119,7 @@ export function updateChange(){
 
 export function deleteDog (id){
     return async function(dispatch){
-        await axios.delete(`http://localhost:3001/dogs/${id}`)
+        await axios.delete(`/dogs/${id}`)
         return dispatch({
             type: "DELETE_DOG",
             payload: id
